@@ -20,7 +20,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, unique: true|
-|body|text|null: false|
+|body|text||
 |image|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |route_id|integer|null: false, foreign_key: true|
@@ -53,5 +53,5 @@
 |route_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :routes
+- belongs_to :route
 - belongs_to :user
