@@ -12,8 +12,8 @@
 
 ### Association
 - has_many :posts
-- has_many :suporters
-- has_many :routes, through: :suporters
+- has_many :supporters
+- has_many :routes, through: :supporters
 
 ## 2.postsテーブル
 
@@ -41,10 +41,10 @@
 
 ### Association
 - has_many :posts
-- has_many :suporters
-- has_many :users, through: :suporters
+- has_many :supporters
+- has_many :users, through: :supporters
 
-## 4.suportersテーブル
+## 4.supportersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
