@@ -7,9 +7,13 @@
       <h3>
         かけっこなう
       </h3>
-      <input class = "input_test" placeholder="consumed_calory" type="text" name="consumed_calory" value="<%= @record.consumed_calory %>">
-      <input class = "input_test" placeholder="running_time" type="text" name="running_time" value="<%= @record.running_time %>">
-      <input class = "input_test" placeholder="result" type="text" name="result" value="<%= @record.result %>">
+      <input class = "input_test" placeholder="consumed_calory" type="text" name="consumed_calory">
+      <input class = "input_test" placeholder="running_time" type="text" name="running_time">
+      <input class = "input_test" placeholder="result" type="text" name="result">
+
+      <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ
+      <input class = "input_test" type="hidden" name="result" value=""> -->
+
       <input type="submit" value="GOAL">
     <% end %>
   </div>
