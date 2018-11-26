@@ -1,0 +1,16 @@
+<h2>Records/edit画面</h2>
+
+
+<div class="contents row">
+  <div class="container">
+    <%= form_tag("/records/#{@record.id}", method: :patch) do %>
+      <h3>
+        かけっこなう
+      </h3>
+      <input class = "input_test" placeholder="consumed_calory" type="text" name="consumed_calory" value="<%= @record.consumed_calory %>">
+      <input class = "input_test" placeholder="running_time" type="text" name="running_time" value="<%= @record.running_time %>">
+      <input class = "input_test" placeholder="result" type="text" name="result" value="<%= @record.result %>">
+      <input type="submit" value="GOAL">
+    <% end %>
+  </div>
+</div>

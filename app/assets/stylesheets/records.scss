@@ -1,3 +1,20 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//ここから適当
+input{
+  font-family: inherit;
+  font-size: 100%;
+}
+.input_test{
+  padding: 0 200px 0 0;
+  margin: 0 0 50px 0;
+}
+input[type='submit'] {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #38aef0;
+}
+//ここまで適当

@@ -1,0 +1,26 @@
+<h2>Records/show画面</h2>
+
+<p> 結果 </p>
+<% if @record.result == 0%>
+  勝利
+<% else %>
+  敗北
+<% end %>
+
+<p> タイム </p>
+<%= @record.running_time %>
+
+<p> 消費カロリー </p>
+<%= @record.consumed_calory %>
+
+<p> スタート駅 </p>
+<%= @record.start_station_id %>
+
+<p> ゴール駅 </p>
+<%= @record.goal_station_id %>
+
+<p> 対戦相手 </p>
+<%= @record.opponent %>
+
+<br><br><br>
+<a class="btn" href="/">戻る</a>
