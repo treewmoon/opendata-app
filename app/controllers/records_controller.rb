@@ -3,12 +3,13 @@ class RecordsController < ApplicationController
   end
 
   def create
-      record = Record.create(\
-        start_station_id: record_create_params[:start_station_id],\
-        goal_station_id: record_create_params[:goal_station_id],\
-        opponent: record_create_params[:opponent],\
-        user_id:current_user.id)
-      redirect_to "/records/#{record.id}/edit"
+    record = Record.create(\
+      start_station_id:  record_create_params[:start_station_id],\
+      goal_station_id:   record_create_params[:goal_station_id],\
+      opponent:          record_create_params[:opponent],\
+      user_id:           current_user.id)
+    # Editアクションへ
+    redirect_to "/records/#{record.id}/edit"
   end
 
   def edit
@@ -18,9 +19,10 @@ class RecordsController < ApplicationController
   def update
     record = Record.find(params[:id])
     record.update(\
-      consumed_calory: record_update_params[:consumed_calory],\
-      running_time: record_update_params[:running_time],\
-      result: record_update_params[:result])
+      consumed_calory:  record_update_params[:consumed_calory],\
+      running_time:     record_update_params[:running_time],\
+      result:           record_update_params[:result])
+    # Showアクションへ
     redirect_to "/records/#{record.id}"
   end
 
