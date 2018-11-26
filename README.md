@@ -18,6 +18,7 @@ rake db:seed
 |e-mail|string|null: false, unique: true|
 |age|integer|年齢|
 |gender|integer|性別(0:男性,1:女性)|
+|height|integer|身長(cm)|
 |weight|integer|体重(kg)|
 
 
