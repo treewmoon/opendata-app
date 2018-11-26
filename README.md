@@ -35,7 +35,7 @@ rake db:seed
 |goal_station_id|integer|null: false, ゴールに設定した駅のid|
 |opponent|string|null: false, 対戦相手に設定した列車の列番号|
 |consumed_calory|integer|消費したカロリー(kcal)|
-|running_time|integer|走行時間(m)|
+|running_time|string|走行時間(分:秒:ミリ秒)|
 |result|integer|勝敗(0:勝利, 1:敗北)|
 
 ### Association

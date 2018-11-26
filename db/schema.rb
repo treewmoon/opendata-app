@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20181126160249) do
     t.integer  "goal_station_id",  null: false
     t.string   "opponent",         null: false
     t.integer  "consumed_calory"
-    t.integer  "running_time"
+    t.string   "running_time"
     t.integer  "result"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
