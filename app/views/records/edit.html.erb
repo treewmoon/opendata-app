@@ -40,18 +40,23 @@
   })
 </script>
 
+
 <div class="contents row">
   <div class="container">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <h3>
         かけっこなう
       </h3>
-      <input class = "input_test" placeholder="consumed_calory" type="text" name="consumed_calory">
-      <input class = "input_test"  id = "input_running_time" placeholder="running_time(実装)" type="text" name="running_time">
-      <input class = "input_test" placeholder="result" type="text" name="result">
+      #consumed_calory
+      <input class = "input_test" name="consumed_calory">
 
-      <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ
-      <input class = "input_test" type="hidden" name="result" value=""> -->
+      <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ -->
+      <input id = "input_running_time" type="hidden" name="running_time">
+      <!-- #running_time
+      <input class = "input_test"  id = "input_running_time" name="running_time"> -->
+
+      #result
+      <input class = "input_test" name="result">
 
       <input id = "GOAL" type="submit" value="GOAL">
     <% end %>
