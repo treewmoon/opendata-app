@@ -1,5 +1,44 @@
 <h2>Records/edit画面</h2>
 
+<div id="timer">00:00:000</div>
+<script>
+  $(function(){
+      var timer = document.getElementById('timer');
+      var startTime;
+      var elapsedTime = 0;
+      var timerId;
+      var timeToadd = 0;
+
+    function updateTimetText(){
+      var m = Math.floor(elapsedTime / 60000);
+      var s = Math.floor(elapsedTime % 60000 / 1000);
+      var ms = elapsedTime % 1000;
+      m = ('0' + m).slice(-2);
+      s = ('0' + s).slice(-2);
+      ms = ('0' + ms).slice(-3);
+      timer.textContent = m + ':' + s + ':' + ms;
+    }
+    function countUp(){
+      timerId = setTimeout(function(){
+        elapsedTime = Date.now() - startTime + timeToadd;
+        updateTimetText()
+        countUp();
+      },10);
+    }
+
+    window.onload = function(){
+      var formData = new FormData(this);
+      startTime = Date.now();
+      countUp();
+    }
+    $('#GOAL').on('click', function(e){
+      var formData = new FormData(this);
+      clearTimeout(timerId);
+      console.log(timer.textContent)
+      $("#input_running_time").attr("value", timer.textContent);
+    })
+  })
+</script>
 
 <div class="contents row">
   <div class="container">
@@ -8,13 +47,13 @@
         かけっこなう
       </h3>
       <input class = "input_test" placeholder="consumed_calory" type="text" name="consumed_calory">
-      <input class = "input_test" placeholder="running_time" type="text" name="running_time">
+      <input class = "input_test"  id = "input_running_time" placeholder="running_time(実装)" type="text" name="running_time">
       <input class = "input_test" placeholder="result" type="text" name="result">
 
       <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ
       <input class = "input_test" type="hidden" name="result" value=""> -->
 
-      <input type="submit" value="GOAL">
+      <input id = "GOAL" type="submit" value="GOAL">
     <% end %>
   </div>
 </div>

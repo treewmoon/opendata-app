@@ -6,7 +6,7 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.integer  :goal_station_id,       null: false
       t.string   :opponent,              null: false
       t.integer  :consumed_calory
-      t.integer  :running_time
+      t.string  :running_time
       t.integer   :result
       t.timestamps
     end
