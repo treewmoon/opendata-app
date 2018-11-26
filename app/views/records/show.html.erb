@@ -8,16 +8,16 @@
 <% end %>
 
 <p> タイム </p>
-<%= @record.running_time %>
+<%= @record.running_time %> 分
 
 <p> 消費カロリー </p>
-<%= @record.consumed_calory %>
+<%= @record.consumed_calory %> kcal
 
-<p> スタート駅 </p>
-<%= @record.start_station_id %>
+<p> スタート </p>
+<%= Station.find(@record.start_station_id).name_ja %> 駅
 
-<p> ゴール駅 </p>
-<%= @record.goal_station_id %>
+<p> ゴール </p>
+<%= Station.find(@record.goal_station_id).name_ja %> 駅
 
 <p> 対戦相手 </p>
 <%= @record.opponent %>
