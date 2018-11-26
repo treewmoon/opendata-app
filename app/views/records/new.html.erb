@@ -1,0 +1,15 @@
+<h2>Records/new画面</h2>
+
+<div class="contents row">
+  <div class="container">
+    <%= form_tag('/records', method: :post) do %>
+      <h3>
+        かけっこする
+      </h3>
+      <input class = "input_test" placeholder="start" type="text" name="start_station_id">
+      <input class = "input_test" placeholder="goal" type="text" name="goal_station_id">
+      <input class = "input_test" placeholder="opponent" type="text" name="opponent">
+      <input type="submit" value="START">
+    <% end %>
+  </div>
+</div>
