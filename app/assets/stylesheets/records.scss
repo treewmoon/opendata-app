@@ -46,9 +46,9 @@ input[type='submit'] {
 }
 //edit画面のGOALボタン↑
 
-//fontの統一↓
-h1,h2,h3 {
-  font-family: 'impact'
-}
-//fontの統一↑
-
+//fontの統一中央寄せ↓
+h1,h2,h3,h4 {
+  font-family: 'impact';
+  text-align: center;
+  }
+//fontの統一中央寄せ↑
