@@ -31,7 +31,7 @@
       startTime = Date.now();
       countUp();
     }
-    $('#GOAL').on('click', function(e){
+    $('.GOAL').on('click', function(e){
       var formData = new FormData(this);
       clearTimeout(timerId);
       console.log(timer.textContent)
@@ -59,7 +59,7 @@
       #result
       <input class = "input_test" name="result">
 
-      <button class = "GOAL" onclick="location.href='records/show'">GOAL</button>
+      <button class = "GOAL" type="submit">GOAL</button>
     <% end %>
   </div>
 </div>
