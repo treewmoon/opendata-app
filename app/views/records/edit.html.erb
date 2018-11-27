@@ -45,8 +45,9 @@
   <div class="container">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <h3>
-        かけっこなう
+        かけっこなう!
       </h3>
+      <h2>YOU VS 山手線</h2>
      <!--  <input id = "input_test" type="hidden" name="cusumed_calory"> -->
       <h4>
         #consumed_calory
@@ -61,8 +62,9 @@
         #result
       </h4>
       <input class = "input_test" name="result">
-
-      <button class = "GOAL" type="submit">GOAL</button>
+      <div class="wrap1">
+        <button class = "GOAL" type="submit">GOAL</button>
+      </div>
     <% end %>
   </div>
 </div>

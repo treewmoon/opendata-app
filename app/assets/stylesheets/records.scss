@@ -10,7 +10,7 @@ input{
 }
 .input_test{
   padding: 0 200px 0 0;
-  margin: 0 0 50px 0;
+  margin: 0 auto;
 }
 input[type='submit'] {
   margin-top: 20px;
@@ -52,3 +52,12 @@ h1,h2,h3,h4 {
   text-align: center;
   }
 //fontの統一中央寄せ↑
+
+.wrap1 {
+  height: 100px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 0 auto;
+}
