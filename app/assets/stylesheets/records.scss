@@ -5,7 +5,7 @@
 
 //ここから適当
 input{
-  font-family: inherit;
+  font-family: 'impact';
   font-size: 100%;
 }
 .input_test{
@@ -16,30 +16,5 @@ input[type='submit'] {
   margin-top: 20px;
   color: #fff;
   background-color: #38aef0;
-}
-
-.GOAL {
-  width: 140px;
-  height: 45px;
-  font-family: 'impact';
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  }
-
-.GOAL:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
 }
 //ここまで適当
