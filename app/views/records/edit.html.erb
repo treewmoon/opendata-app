@@ -1,70 +1,79 @@
-<h2>Records/edit画面</h2>
+<div id="record-edit">
+  <h2>Records/edit画面</h2>
 
-<div id="timer">00:00:000</div>
-<script>
-  $(function(){
-      var timer = document.getElementById('timer');
-      var startTime;
-      var elapsedTime = 0;
-      var timerId;
-      var timeToadd = 0;
+  <div id="timer">00:00:000</div>
+  <script>
+    $(function(){
+        var timer = document.getElementById('timer');
+        var startTime;
+        var elapsedTime = 0;
+        var timerId;
+        var timeToadd = 0;
 
-    function updateTimetText(){
-      var m = Math.floor(elapsedTime / 60000);
-      var s = Math.floor(elapsedTime % 60000 / 1000);
-      var ms = elapsedTime % 1000;
-      m = ('0' + m).slice(-2);
-      s = ('0' + s).slice(-2);
-      ms = ('0' + ms).slice(-3);
-      timer.textContent = m + ':' + s + ':' + ms;
-    }
-    function countUp(){
-      timerId = setTimeout(function(){
-        elapsedTime = Date.now() - startTime + timeToadd;
-        updateTimetText()
+      function updateTimetText(){
+        var m = Math.floor(elapsedTime / 60000);
+        var s = Math.floor(elapsedTime % 60000 / 1000);
+        var ms = elapsedTime % 1000;
+        m = ('0' + m).slice(-2);
+        s = ('0' + s).slice(-2);
+        ms = ('0' + ms).slice(-3);
+        timer.textContent = m + ':' + s + ':' + ms;
+      }
+      function countUp(){
+        timerId = setTimeout(function(){
+          elapsedTime = Date.now() - startTime + timeToadd;
+          updateTimetText()
+          countUp();
+        },10);
+      }
+
+      window.onload = function(){
+        var formData = new FormData(this);
+        startTime = Date.now();
         countUp();
-      },10);
-    }
+      }
+      $('.GOAL').on('click', function(e){
+        var formData = new FormData(this);
+        clearTimeout(timerId);
+        console.log(timer.textContent);//1
+        $("#input_running_time").attr("value", timer.textContent);
 
-    window.onload = function(){
-      var formData = new FormData(this);
-      startTime = Date.now();
-      countUp();
-    }
-    $('.GOAL').on('click', function(e){
-      var formData = new FormData(this);
-      clearTimeout(timerId);
-      console.log(timer.textContent)
-      $("#input_running_time").attr("value", timer.textContent);
+        //var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//本当はこっち
+        var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %> + 315;//2
+        console.log('cal : %d', cal);//3
+
+        $("#input_calory").attr("value", cal);//4
+      })
     })
-  })
-</script>
+  </script>
 
-
-<div class="contents row">
-  <div class="container">
+  <div class="contents row">
+    <!-- DBにアクセスする -->
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
-      <h3>
-        かけっこなう!
-      </h3>
-      <h2>YOU VS 山手線</h2>
-     <!--  <input id = "input_test" type="hidden" name="cusumed_calory"> -->
-      <h4>
-        #consumed_calory
-      </h4>
-      <input class = "input_test" name="consumed_calory">
+      <div class="container">
+        <h3>かけっこなう!</h3>
+        <h2><%= current_user.name %> VS 山手線</h2><!-- 5 -->
+        <div class="flex">
+          <div class="start"> START
+          <%= Station.find(@record.start_station_id).name_ja %> 駅 </div>
+          <div class="goal"> GOAL
+          <%= Station.find(@record.goal_station_id).name_ja %> 駅 </div>
+        </div>
 
-      <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ -->
-      <input id = "input_running_time" type="hidden" name="running_time">
-      <!-- #running_time
-      <input class = "input_test" name="running_time"> -->
-      <h4>
-        #result
-      </h4>
-      <input class = "input_test" name="result">
-      <div class="wrap1">
-        <button class = "GOAL" type="submit">GOAL</button>
+        <!-- <h4>#consumed_calory</h4> -->
+        <!-- <div><input name="consumed_calory"></div> --><!--元々のカロリーを入力してた残骸-->
+
+        <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ -->
+        <input id = "input_running_time" type="hidden" name="running_time">
+        <input id = "input_calory" type="hidden" name="consumed_calory"><!-- 6 -->
+        <!-- #running_time
+        <input class = "input_test" name="running_time"> -->
+        <h4>#result</h4>
+        <input name="result">
       </div>
-    <% end %>
+      <div class="wrap1">
+        <button class="GOAL" type="submit">GOAL</button>
+      </div>
+    <% end %><!--DBにアクセス終わり-->
   </div>
 </div>
