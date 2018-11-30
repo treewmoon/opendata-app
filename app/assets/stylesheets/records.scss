@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #record-edit {
+  font-family: 'impact';
 
 .flex {
   display: flex;
   flex-flow: row wrap;
+  height: 100px;
   // justify-content: center;
   // align-items: center;
-  height: 100px;
-  font-family: 'impact';
   /*justify-content: space-between;*/
   /*justify-content: flex-start;*/
   /*justify-content: flex-end;*/
@@ -93,7 +93,6 @@ div{
 
 //fontの統一中央寄せ↓
 h1,h2,h3,h4 {
-  font-family: 'impact';
   text-align: center;
   }
 //fontの統一中央寄せ↑
@@ -107,7 +106,6 @@ h4 {
   font-size: 50px;
   color: black;
   line-height: 80px;
-  font-family: 'impact';
 }
 
 }
