@@ -1,9 +1,8 @@
 <div id="record-edit">
   <h2>Records/edit画面</h2>
-
   <div id="timer">00:00:000</div>
-  <script>
-    $(function(){
+    <script>
+      $(function(){
         var timer = document.getElementById('timer');
         var startTime;
         var elapsedTime = 0;
@@ -44,8 +43,8 @@
 
         $("#input_calory").attr("value", cal);//4
       })
-    })
-  </script>
+      })
+    </script>
 
   <div class="contents row">
     <!-- DBにアクセスする -->
@@ -75,9 +74,10 @@
         <!-- #running_time
         <input class = "input_test" name="running_time"> -->
          <input id="duration" name="duration" type="text" value="10" class="form-control" />
+         <!-- とりあえず10秒をinputで表示 -->
         <h4>#result</h4>
         <input name="result">
-      </div>
+
       <div class="wrap1">
         <button class="GOAL" type="submit">GOAL</button>
       </div>
