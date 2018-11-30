@@ -6,65 +6,103 @@
 
 .flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
+  // justify-content: center;
+  // align-items: center;
   height: 100px;
   font-family: 'impact';
   /*justify-content: space-between;*/
   /*justify-content: flex-start;*/
   /*justify-content: flex-end;*/
-  }
+}
 
-  div{
-    margin: 0 auto;
-    text-align: center;
-  }
+.half-circle-lo {
+  margin: 20px 0;
+  margin: 2.5rem 0;
+  margin: 0 auto;
+}
 
-  .wrap1 {
-    height:100px;
-    width: 200px;
-    display: flex; //並列になる
-    align-items: center; //上下方向に中央揃え
-    justify-content: center; //左右方向の中央揃え
-    margin: 0 auto;
-  }
+.half-circle-mod {
+  background: #999;
+  height: 100px;
+  width: 200px;
+  behavior: url(/PIE.htc);
+  background-color: lime;
+}
+.half-circle-lo__half-circle-mod {
+  -moz-border-radius: 100px 100px 0 0;
+  -webkit-border-radius: 100px 100px 0 0;
+  -o-border-radius: 100px 100px 0 0;
+  -ms-border-radius: 100px 100px 0 0;
+  border-radius: 100px 100px 0 0;
+}
 
-  //edit画面のGOALボタン↓
-  .GOAL {
-    height: 45px;
-    width: 140px;
-    font-family: 'impact';
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
+.start {
+  height: 25px;
+}
 
-  .GOAL:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
-  //edit画面のGOALボタン↑
+.goal {
+  height: 25px;
+}
 
-  //fontの統一中央寄せ↓
-  h1,h2,h3,h4 {
-    font-family: 'impact';
-    text-align: center;
-    }
-  //fontの統一中央寄せ↑
-  #timer {
-    height: 100px;
-    font-size: 50px;
+div{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrap1 {
+  height:100px;
+  width: 200px;
+  display: flex; //並列になる
+  align-items: center; //上下方向に中央揃え
+  justify-content: center; //左右方向の中央揃え
+  margin: 0 auto;
+}
+
+//edit画面のGOALボタン↓
+.GOAL {
+  height: 45px;
+  width: 140px;
+  font-family: 'impact';
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.GOAL:hover {
+  background-color: lime;
+  box-shadow: 0px 15px 20px rgba(10, 229, 100, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+//edit画面のGOALボタン↑
+
+//fontの統一中央寄せ↓
+h1,h2,h3,h4 {
+  font-family: 'impact';
+  text-align: center;
   }
+//fontの統一中央寄せ↑
+h4 {
+  padding-top: 20px;
+}
+
+#timer {
+  height: 80px;
+  font-size: 50px;
+  color: black;
+  line-height: 80px;
+  font-family: 'impact';
+}
+
 }
 

@@ -51,13 +51,19 @@
     <!-- DBにアクセスする -->
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <div class="container">
-        <h3>かけっこなう!</h3>
+        <h2>RUN NOW!</h2>
         <h2><%= current_user.name %> VS 山手線</h2><!-- 5 -->
         <div class="flex">
           <div class="start"> START
-          <%= Station.find(@record.start_station_id).name_ja %> 駅 </div>
+            <%= Station.find(@record.start_station_id).name_ja %> 駅 </div>
           <div class="goal"> GOAL
           <%= Station.find(@record.goal_station_id).name_ja %> 駅 </div>
+          <div class="Codetank-20160816 Codetank__source">
+            <div class="half-circle-lo">
+            <div class="half-circle-lo__half-circle-mod  half-circle-mod">
+            </div>
+            </div>
+          </div>
         </div>
 
         <!-- <h4>#consumed_calory</h4> -->
