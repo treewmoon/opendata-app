@@ -45,6 +45,11 @@
   height: 25px;
 }
 
+#duration.form-control {
+  width: 50px;
+  margin: 0 auto;
+}
+
 div{
   margin: 0 auto;
   text-align: center;
@@ -92,8 +97,9 @@ h1,h2,h3,h4 {
   text-align: center;
   }
 //fontの統一中央寄せ↑
+
 h4 {
-  padding-top: 20px;
+  margin-top: 20px;
 }
 
 #timer {
