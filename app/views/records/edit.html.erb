@@ -37,8 +37,8 @@
         console.log(timer.textContent);//1
         $("#input_running_time").attr("value", timer.textContent);
 
-        //var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//本当はこっち
-        var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %> + 315;//2
+        var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//本当
+        // var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %> + 315;//2
         console.log('cal : %d', cal);//3
 
         $("#input_calory").attr("value", cal);//4
