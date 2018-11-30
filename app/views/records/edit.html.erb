@@ -35,7 +35,7 @@
           clearTimeout(timerId);
           console.log(timer.textContent);//1
           $("#input_running_time").attr("value", timer.textContent);
-          var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//2
+          var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;//2
           console.log('cal : %d', cal);//3
           $("#input_calory").attr("value", cal);//4
         })
