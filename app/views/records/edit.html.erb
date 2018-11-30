@@ -9,40 +9,36 @@
         var timerId;
         var timeToadd = 0;
 
-      function updateTimetText(){
-        var m = Math.floor(elapsedTime / 60000);
-        var s = Math.floor(elapsedTime % 60000 / 1000);
-        var ms = elapsedTime % 1000;
-        m = ('0' + m).slice(-2);
-        s = ('0' + s).slice(-2);
-        ms = ('0' + ms).slice(-3);
-        timer.textContent = m + ':' + s + ':' + ms;
-      }
-      function countUp(){
-        timerId = setTimeout(function(){
-          elapsedTime = Date.now() - startTime + timeToadd;
-          updateTimetText()
+        function updateTimetText(){
+          var m = Math.floor(elapsedTime / 60000);
+          var s = Math.floor(elapsedTime % 60000 / 1000);
+          var ms = elapsedTime % 1000;
+          m = ('0' + m).slice(-2);
+          s = ('0' + s).slice(-2);
+          ms = ('0' + ms).slice(-3);
+          timer.textContent = m + ':' + s + ':' + ms;
+        }
+        function countUp(){
+          timerId = setTimeout(function(){
+            elapsedTime = Date.now() - startTime + timeToadd;
+            updateTimetText()
+            countUp();
+          },10);
+        }
+        window.onload = function(){
+          var formData = new FormData(this);
+          startTime = Date.now();
           countUp();
-        },10);
-      }
-
-      window.onload = function(){
-        var formData = new FormData(this);
-        startTime = Date.now();
-        countUp();
-      }
-      $('.GOAL').on('click', function(e){
-        var formData = new FormData(this);
-        clearTimeout(timerId);
-        console.log(timer.textContent);//1
-        $("#input_running_time").attr("value", timer.textContent);
-
-        var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//本当
-        // var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %> + 315;//2
-        console.log('cal : %d', cal);//3
-
-        $("#input_calory").attr("value", cal);//4
-      })
+        }
+        $('.GOAL').on('click', function(e){
+          var formData = new FormData(this);
+          clearTimeout(timerId);
+          console.log(timer.textContent);//1
+          $("#input_running_time").attr("value", timer.textContent);
+          var cal = 1.05 * 6.0 * parseFloat(timer.textContent) * <%= current_user.weight %>;//2
+          console.log('cal : %d', cal);//3
+          $("#input_calory").attr("value", cal);//4
+        })
       })
     </script>
 
@@ -64,23 +60,16 @@
             </div>
           </div>
         </div>
-
-        <!-- <h4>#consumed_calory</h4> -->
-        <!-- <div><input name="consumed_calory"></div> --><!--元々のカロリーを入力してた残骸-->
-
-        <!-- 今後は、フォームを隠してvalueにパラメーターを入れる感じ -->
+        <!-- フォームを隠してvalueにパラメーターを入れる -->
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory"><!-- 6 -->
-        <!-- #running_time
-        <input class = "input_test" name="running_time"> -->
          <input id="duration" name="duration" type="text" value="10" class="form-control" />
          <!-- とりあえず10秒をinputで表示 -->
         <h4>#result</h4>
         <input name="result">
-
-      <div class="wrap1">
-        <button class="GOAL" type="submit">GOAL</button>
+        <div class="wrap1">
+          <button class="GOAL" type="submit">GOAL</button>
+        </div>
+      <% end %><!--DBにアクセス終わり-->
       </div>
-    <% end %><!--DBにアクセス終わり-->
   </div>
-</div>
