@@ -51,12 +51,12 @@ div{
 }
 
 .wrap1 {
-  height:100px;
+  height:80px;
   width: 200px;
   display: flex; //並列になる
   align-items: center; //上下方向に中央揃え
   justify-content: center; //左右方向の中央揃え
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .GOAL {
@@ -86,9 +86,10 @@ div{
 
 h1,h2,h3,h4 {
   text-align: center;
+  margin: 10px;
   }
 
-h4 {
+h2 {
   margin-top: 20px;
 }
 
@@ -96,7 +97,18 @@ h4 {
   height: 80px;
   font-size: 50px;
   color: black;
-  line-height: 80px;
+  line-height: 40px;
+  font-family: monospace;
+}
+
+.container {
+  // padding-top:  10px;
+  height: 10px;
+  width: 100%;
+}
+
+#timer {
+  height: 50px;
 }
 
 }
