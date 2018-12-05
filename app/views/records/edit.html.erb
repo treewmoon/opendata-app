@@ -39,7 +39,12 @@
           console.log('cal : %d', cal);//3
           $("#input_calory").attr("value", cal);//4
         })
-      })
+
+  $('img').css({left:'0',position:'absolute'});
+  setInterval(function(){
+    $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
+  },3000);
+});
     </script>
 
   <div class="contents row">
@@ -69,5 +74,9 @@
           <button class="GOAL" type="submit">GOAL</button>
         </div>
       <% end %><!--DBにアクセス終わり-->
+
+<div class="train">
+  <%= image_tag 'photo01.jpg', :size =>'100x100' %>
+</div>
       </div>
   </div>
