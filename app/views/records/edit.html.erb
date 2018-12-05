@@ -47,12 +47,11 @@
           //  }
           //ここまで
         })
-
-  $('img').css({left:'0',position:'absolute'});
-  setInterval(function(){
-    $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
-  },3000);
-});
+        $('img').css({left:'0',position:'absolute'});
+          setInterval(function(){
+        $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
+        },3000);
+      });
     </script>
 
   <div class="contents row">
@@ -79,6 +78,5 @@
           <button class="GOAL" type="submit">GOAL</button>
         </div>
       <% end %><!--DBにアクセス終わり-->
-
       </div>
   </div>
