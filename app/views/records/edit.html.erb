@@ -38,6 +38,14 @@
           var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;//2
           console.log('cal : %d', cal);//3
           $("#input_calory").attr("value", cal);//4
+          //ここから
+          // var result
+          //  if (parseFloat(timer.textContent) >= 10) {
+          //    console.log(“勝利！おめでとうございます！”);
+          //  } else {
+          //    console.log(“敗北！がんばりましょう！”);
+          //  }
+          //ここまで
         })
 
   $('img').css({left:'0',position:'absolute'});
@@ -58,11 +66,8 @@
             <%= Station.find(@record.start_station_id).name_ja %> 駅 </div>
           <div class="goal"> GOAL
           <%= Station.find(@record.goal_station_id).name_ja %> 駅 </div>
-          <div class="Codetank-20160816 Codetank__source">
-            <div class="half-circle-lo">
-            <div class="half-circle-lo__half-circle-mod  half-circle-mod">
-            </div>
-            </div>
+          <div class="train">
+            <%= image_tag 'photo01.jpg', :size =>'100x100' %>
           </div>
         </div>
         <!-- フォームを隠してvalueにパラメーターを入れる -->
@@ -75,8 +80,5 @@
         </div>
       <% end %><!--DBにアクセス終わり-->
 
-<div class="train">
-  <%= image_tag 'photo01.jpg', :size =>'100x100' %>
-</div>
       </div>
   </div>
