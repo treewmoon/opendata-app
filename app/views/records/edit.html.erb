@@ -36,19 +36,20 @@
           var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;//2
           console.log('cal : %d', cal);//3
           $("#input_calory").attr("value", cal);//4
-          //ここから
-          // if (parseFloat(timer.textContent) >= 10) {
-          //   var result = 0;
-          //   console.log(“勝利！おめでとうございます！”);
-          //  } else {
-          //   var result = 1;
-          //   console.log(“敗北！がんばりましょう！”);
-          // //  }
-          //ここまで
+          var result;
+            if (parseFloat(timer.textContent) >= 1 ) {
+              result = 1;
+            } else {
+              result = 0;
+            }
+            console.log(result);
+            $("#result").attr("value", result);
         })
         $('img').css({left:'0',position:'absolute'});
           setInterval(function(){
+
         $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
+
         },3000);
       });
     </script>
@@ -71,8 +72,8 @@
         <!-- フォームを隠してvalueにパラメーターを入れる -->
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory"><!-- 6 -->
-        <h4>#result</h4>
-        <input name="result">
+<!--         <h4>#result</h4> -->
+        <input id = "result" name="result" type="hidden">
         <div class="wrap1">
           <button class="GOAL" type="submit">GOAL</button>
         </div>
