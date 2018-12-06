@@ -54,9 +54,9 @@ div{
 .wrap1 {
   height:80px;
   width: 200px;
-  display: flex; //並列になる
-  align-items: center; //上下方向に中央揃え
-  justify-content: center; //左右方向の中央揃え
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 50px auto;
 }
 
@@ -103,7 +103,6 @@ h2 {
 }
 
 .container {
-  // padding-top:  10px;
   height: 10px;
   width: 100%;
 }
