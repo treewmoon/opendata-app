@@ -1,6 +1,6 @@
 <div id="record-edit">
   <h2>Records/edit画面</h2>
-  <div id="timer">00:00:000</div>
+  <div id="timer">00:00</div>
     <script>
       $(function(){
         var timer = document.getElementById('timer');
@@ -12,11 +12,9 @@
         function updateTimetText(){
           var m = Math.floor(elapsedTime / 60000);
           var s = Math.floor(elapsedTime % 60000 / 1000);
-          var ms = elapsedTime % 1000;
           m = ('0' + m).slice(-2);
           s = ('0' + s).slice(-2);
-          ms = ('0' + ms).slice(-3);
-          timer.textContent = m + ':' + s + ':' + ms;
+          timer.textContent = m + ':' + s;
         }
         function countUp(){
           timerId = setTimeout(function(){
@@ -39,12 +37,13 @@
           console.log('cal : %d', cal);//3
           $("#input_calory").attr("value", cal);//4
           //ここから
-          // var result
-          //  if (parseFloat(timer.textContent) >= 10) {
-          //    console.log(“勝利！おめでとうございます！”);
+          // if (parseFloat(timer.textContent) >= 10) {
+          //   var result = 0;
+          //   console.log(“勝利！おめでとうございます！”);
           //  } else {
-          //    console.log(“敗北！がんばりましょう！”);
-          //  }
+          //   var result = 1;
+          //   console.log(“敗北！がんばりましょう！”);
+          // //  }
           //ここまで
         })
         $('img').css({left:'0',position:'absolute'});
