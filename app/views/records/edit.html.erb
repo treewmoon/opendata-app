@@ -37,7 +37,7 @@
           console.log('cal : %d', cal);
           $("#input_calory").attr("value", cal);
           var result;
-            if (parseFloat(timer.textContent) >= 1 ) {
+            if (parseFloat(timer.textContent) >= 1) {
               result = 1;
             } else {
               result = 0;
@@ -50,10 +50,10 @@
         var img = $('img').css({left:'0',position:'absolute'});
         var trainMove;
         trainMove = setInterval(function(){
-          $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
-          n = n + 10;
+          $('img').stop().animate({left:'+=' + '10' + 'px'},1000 );
+          n = n + 1;
           console.log(n);
-          if ( n >= 300 ) {
+          if ( n >= 30 ) {
             stopTrain();
             console.log("a")
           }else{
@@ -78,7 +78,8 @@
           <div class="goal"> GOAL
           <%= Station.find(@record.goal_station_id).name_ja %> 駅 </div>
           <div class="train">
-            <%= image_tag 'photo01.jpg', :size =>'100x100' %>
+
+            <%= image_tag '9407.jpg', :size =>'100x50', class: "buruburu" %>
           </div>
         </div>
         <input id = "input_running_time" type="hidden" name="running_time">
