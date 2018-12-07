@@ -45,12 +45,25 @@
             console.log(result);
             $("#result").attr("value", result);
         })
-        $('img').css({left:'0',position:'absolute'});
-          setInterval(function(){
 
-        $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
-
+        var n = 0;
+        var img = $('img').css({left:'0',position:'absolute'});
+        var trainMove;
+        trainMove = setInterval(function(){
+          $('img').stop().animate({left:'+=' + '10' + 'px'},1000);
+          n = n + 10;
+          console.log(n);
+          if ( n >= 300 ) {
+            stopTrain();
+            console.log("a")
+          }else{
+            console.log("else");
+          };
         },3000);
+
+        function stopTrain(){
+          clearInterval(trainMove);
+        }
       });
     </script>
 
