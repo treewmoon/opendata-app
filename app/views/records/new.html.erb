@@ -1,19 +1,40 @@
-<h2>Records/new画面</h2>
+<h2>スタート設定</h2>
 
-<div class="contents row">
-  <div class="container">
+
+<script>
+  $(function(){
+      var start = document.getElementById('start');
+
+
+      $('.start_station').on('click', function(e){
+        start.textContent = this.id
+        e.preventDefault();
+        console.log(this.id)
+        $("#form_start_station").attr("value", start.textContent);
+      })
+
+
+
+
+    })
+
+</script>
+
+<br><p>選択されている駅id</p>
+<div id="start">13</div>
+
+
+<div id = "select__start" >
+  <% for i in 1..29 do %>
+    ・<a href="" id = <%=i%> class = "start_station"><%= Station.find(i).name_ja %>駅 </a><br>
+  <% end %>
+</div>
+
+
+<div class="wrap1">
     <%= form_tag('/records', method: :post) do %>
-      <h3>
-        かけっこする
-      </h3>
-      #start_station
-      <input class = "input_test" name="start_station_id">
-      #goal_station
-      <input class = "input_test" name="goal_station_id">
-      #opponent
-      <input class = "input_test" name="opponent">
-
-      <input type="submit" value="START">
+      <input id = "form_start_station" name="start_station_id" type = "hidden">
+      <button class ="input__button" id = "next_1" type="submit">NEXT</button>
     <% end %>
-  </div>
+
 </div>

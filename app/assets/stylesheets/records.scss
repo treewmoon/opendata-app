@@ -3,18 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-//ここから適当
-input{
-  font-family: inherit;
-  font-size: 100%;
-}
-.input_test{
-  padding: 0 200px 0 0;
-  margin: 0 0 50px 0;
-}
-input[type='submit'] {
-  margin-top: 20px;
+.input__button {
+  width: 140px;
+  height: 45px;
+  font-family: 'impact';
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.input__button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
-  background-color: #38aef0;
+  transform: translateY(-7px);
 }
-//ここまで適当
+
+
+.hidden__content{
+  display:none;
+}

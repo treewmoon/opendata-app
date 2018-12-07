@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181126160249) do
+ActiveRecord::Schema.define(version: 20181206090034) do
 
   create_table "records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "start_station_id", null: false
-    t.integer  "goal_station_id",  null: false
-    t.string   "opponent",         null: false
+    t.integer  "start_station_id"
+    t.integer  "goal_station_id"
+    t.string   "opponent"
     t.integer  "consumed_calory"
     t.string   "running_time"
     t.integer  "result"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "direction"
     t.index ["user_id"], name: "index_records_on_user_id", using: :btree
   end
 
@@ -43,8 +44,6 @@ ActiveRecord::Schema.define(version: 20181126160249) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "height",                              null: false
-    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "records", "users"
