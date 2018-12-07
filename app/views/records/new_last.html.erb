@@ -1,0 +1,45 @@
+<script>
+  $(function(){
+      var opponent = document.getElementById('opponent');
+
+
+      $('.opponents').on('click', function(e){
+        opponent.textContent = this.id
+        e.preventDefault();
+        console.log(this.id)
+        $("#form_opponent").attr("value", opponent.textContent);
+      })
+
+
+
+
+    })
+
+</script>
+
+
+<h2>相手設定</h2>
+
+<div>
+  <%Record.search_trains(@record.start_station_id,@record.goal_station_id,@record.direction,5).each do |opponent| %>
+    <a href="" id = <%=opponent["number"]%> class = "opponents"><%= opponent["number"]%> </a>
+    <<%= Station.find(@record.goal_station_id).name_ja%>駅到着予定時刻 : <%= opponent["goal_time"] %>>
+    <br>
+
+
+  <% end %>
+</div>
+
+
+<br><br>選択されている対戦相手<br>
+<div id="opponent">1333G</div>
+
+
+<div class="wrap1">
+
+    <%= form_tag("/records/#{@record.id}/set_opponent", method: :patch) do %>
+      <input id = "form_opponent" name="opponent" type = "hidden">
+      <button class ="input__button "id = "start" type="submit">NEXT</button>
+    <% end %>
+
+</div>
