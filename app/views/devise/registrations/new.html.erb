@@ -1,5 +1,5 @@
-<div id="login-page">
-  <h2>JRE Run with Train</h2>
+<div id="signup-page">
+  <h3> ~WELCOME!~ </h3>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -15,23 +15,8 @@
     </div>
 
     <div class="field">
-      <%= f.label :age %><br />
-      <%= f.text_field :age, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :gender %><br />
-      <%= f.text_field :gender, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :height %><br />
-      <%= f.text_field :height, autofocus: true %>
-    </div>
-
-    <div class="field">
       <%= f.label :weight %><br />
-      <%= f.text_field :weight, autofocus: true %>
+      <%= f.text_field :weight, autofocus: true ,:placeholder => "ex. 60kgの場合 60 と入力" %>
     </div>
 
     <div class="field">
