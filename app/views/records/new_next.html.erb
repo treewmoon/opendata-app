@@ -1,0 +1,49 @@
+<script>
+  $(function(){
+      var goal = document.getElementById('goal');
+
+
+      $('.goal_stations').on('click', function(e){
+        goal.textContent = this.id
+        e.preventDefault();
+        console.log(this.id)
+        $("#form_goal_station").attr("value", goal.textContent);
+        $("#form_direction").attr("value", 0);
+      })
+
+
+
+
+    })
+
+</script>
+
+
+<h2>ゴール設定</h2>
+   <div id = "select__goal__inner" >
+    <strong>内回り(近い４駅)</strong><br>
+    <% Record.get_stations_inner(@record.start_station_id,4).each do |station| %>
+      ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
+    <% end %>
+   </div>
+
+   <div id = "select__goal__outer" >
+    <strong>外回り(近い４駅)※選ばないで！</strong><br>
+    <% Record.get_stations_outer(@record.start_station_id,4).each do |station| %>
+      ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
+    <% end %>
+   </div>
+
+<br><p>選択されている駅id</p>
+<!-- <div class = "hidden__content" id="goal">00:00:000</div> -->
+<div id="goal">13</div>
+
+<div class="wrap1">
+  <%= form_tag("/records/#{@record.id}/set_goal", method: :patch) do %>
+    <input id = "form_goal_station" name="goal_station_id" type = "hidden">
+    <input id = "form_direction" name="direction" type = "hidden">
+    <button class ="input__button "id = "start" type="submit">NEXT</button>
+  <% end %>
+
+</div>
+

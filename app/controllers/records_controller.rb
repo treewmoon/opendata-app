@@ -1,13 +1,40 @@
+require "jre_api.rb"
+
 class RecordsController < ApplicationController
+  #スタート選択
   def new
   end
 
   def create
     record = Record.create(\
       start_station_id:  record_create_params[:start_station_id],\
-      goal_station_id:   record_create_params[:goal_station_id],\
-      opponent:          record_create_params[:opponent],\
       user_id:           current_user.id)
+    # new_nextアクションへ
+    redirect_to "/records/#{record.id}/new_next"
+  end
+
+  #ゴール設定
+  def new_next
+    @record = Record.find(params[:id])
+  end
+
+  def set_goal
+    record = Record.find(params[:id])
+    record.update(\
+      goal_station_id: record_set_goal_params[:goal_station_id],\
+      direction:       record_set_goal_params[:direction])
+    # new_lastアクションへ
+    redirect_to "/records/#{record.id}/new_last"
+  end
+
+  #相手設定
+  def new_last
+    @record = Record.find(params[:id])
+  end
+
+  def set_opponent
+    record = Record.find(params[:id])
+    record.update(opponent:record_set_opponent_params[:opponent])
     # Editアクションへ
     redirect_to "/records/#{record.id}/edit"
   end
@@ -31,8 +58,14 @@ class RecordsController < ApplicationController
   end
 
   private
+    def record_set_goal_params
+      params.permit(:goal_station_id,:direction)
+    end
+    def record_set_opponent_params
+      params.permit(:opponent)
+    end
     def record_create_params
-      params.permit(:start_station_id, :goal_station_id, :opponent)
+      params.permit(:start_station_id)
     end
     def record_update_params
       params.permit(:consumed_calory,:running_time,:result)
