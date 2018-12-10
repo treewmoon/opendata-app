@@ -163,12 +163,12 @@
     background: #fff;
   }
 
-  .buruburu {
+  .vibration {
     display: inline-block;
-    animation: hurueru .1s  infinite;
+    animation: shaking .5s  infinite;
   }
 
-  @keyframes hurueru {
+  @keyframes shaking {
     0% {transform: translate(0px, 0px) rotateZ(0deg)}
     25% {transform: translate(2px, 2px) rotateZ(1deg)}
     50% {transform: translate(0px, 2px) rotateZ(0deg)}
