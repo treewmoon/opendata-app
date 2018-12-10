@@ -53,7 +53,7 @@
           $('img').stop().animate({left:'+=' + '10' + 'px'},1000 );
           n = n + 1;
           console.log(n);
-          if ( n >= 30 ) {
+          if ( n >= 25 ) {
             stopTrain();
             console.log("a")
           }else{
@@ -82,13 +82,12 @@
             <%= image_tag '9407.jpg', :size =>'100x50', class: "vibration" %>
           </div>
         </div>
-
-          <div>
-            到着時刻
-              <<%= Record.get_arrivalTime(@record.opponent,@record.goal_station_id)%>><br>
-            現在時刻
-              <<%= Record.get_now_time %>>
-          </div>
+        <div>
+          到着時刻
+            <<%= Record.get_arrivalTime(@record.opponent,@record.goal_station_id)%>><br>
+          現在時刻
+            <<%= Record.get_now_time %>>
+        </div>
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory">
         <input id = "result" name="result" type="hidden">
