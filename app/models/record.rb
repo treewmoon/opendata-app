@@ -41,7 +41,12 @@ class Record < ApplicationRecord
         # train["location"] = Station.find_by(name_en: location).id
         train["arrivalTime"] = Record.get_arrivalTime(train["number"],s_i)
         # train["delay"] = j["odpt:delay"]/60
-        trains << train
+
+        #時刻表に存在しない列番がロケーション情報に存在する時
+        if train["arrivalTime"] != 0
+          trains << train
+        end
+        # trains << train
       end
     end
 
@@ -62,17 +67,7 @@ class Record < ApplicationRecord
       opponent["start_time"] = Record.get_arrivalTime(opponent["number"],s_i)
       opponent["goal_time"] = Record.get_arrivalTime(opponent["number"],g_i)
       opponents << opponent
-
     end
-
-
-
-
-
-
-
-
-
     return opponents
   end
 
@@ -80,12 +75,17 @@ class Record < ApplicationRecord
   #引数で与えた電車が引数で与えた駅に到着する時間を返す
   def self.get_arrivalTime(train_number,station_id)
     json = Jre_api.get_train_timetable(train_number)
+
+    #時刻表に存在しない列番のときは0を返す
+    # if json == []
+    #   binding.pry
+    # end
+    return 0 if json == []
+
     times = json[0]["odpt:trainTimetableObject"]
-    # station_obj = Station.find(station_id)
     for t in times do
       station = t["odpt:departureStation"].gsub(/odpt.Station:JR-East.Yamanote./, "")
       if station == Station.find(station_id).name_en
-      # if station == station_obj.name_en
         arrivalTime = t["odpt:departureTime"]
         break
       end
