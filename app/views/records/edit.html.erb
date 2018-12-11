@@ -32,7 +32,6 @@
           var formData = new FormData(this);
           clearTimeout(timerId);
 
-          //走った時間を秒数で表示
           var running_time = timer.textContent.split(':');
           var min = Number(running_time[0]);
           var sec = Number(running_time[1]);
@@ -45,7 +44,6 @@
           console.log('cal : %d', cal);
           $("#input_calory").attr("value", cal);
 
-          //スタート時刻を秒数で表示
           var starttime =  $("#nowtime").data("nowtime");
           var start_time = starttime.split(':');
           var hour_s = Number(start_time[0]);
@@ -54,7 +52,6 @@
           console.log("-start_time_sec-");
           console.log(start_time_sec);
 
-          //電車の到着予定時刻を秒数で表示
           var arrivalTime =  $("#arrivalTime").data("arrivaltime");
           var arrival_time = arrivalTime.split(':');
           var hour_a = Number(arrival_time[0]);
@@ -80,7 +77,6 @@
         trainMove = setInterval(function(){
           $('img').stop().animate({left:'+=' + '10' + 'px'},1000 );
           n = n + 1;
-          console.log(n);
           if ( n >= 25 ) {
             stopTrain();
             console.log("a")
@@ -88,7 +84,6 @@
             console.log("else");
           };
         },3000);
-          //ここまで
 
         function stopTrain(){
           clearInterval(trainMove);
