@@ -19,7 +19,7 @@
         function countUp(){
           timerId = setTimeout(function(){
             elapsedTime = Date.now() - startTime + timeToadd;
-            updateTimetText()
+            updateTimetText();
             countUp();
           },10);
         }
@@ -60,13 +60,13 @@
           console.log("-arrivaltime_sec-");
           console.log(arrival_time_sec);
 
-          console.log("-result-");
           var result;
             if (arrival_time_sec >= start_time_sec + running_time_sec) {
               result = 0;
             } else {
               result = 1;
             }
+          console.log("-result-");
           console.log(result);
           $("#result").attr("value", result);
         })
@@ -79,7 +79,7 @@
           n = n + 1;
           if ( n >= 25 ) {
             stopTrain();
-            console.log("a")
+            console.log("a");
           }else{
             console.log("else");
           };
