@@ -11,36 +11,6 @@
   </head>
 
   <body>
-
-        <div class="header__bar row">
-      <h1 class="grid-6"><a href="/">JRE Run With Train</a></h1>
-
-      <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <span>
-            <ul class="user__info" style="list-style: none;">
-              <li>
-                <%= link_to destroy_user_session_path, :method => :delete do %>
-                 <i class="fa fa-sign-out fa-2x fa-border fa-rotate-90"></i>
-                <% end %>
-              </li>
-            </ul>
-          </span>
-
-        </div>
-      <% else %>
-        <div class="grid-6">
-
-        </div>
-      <% end %>
-    </div>
-
     <%= yield %>
-
-        <footer>
-      <p>
-        JRE Run With Train 2018.
-      </p>
-    </footer>
   </body>
 </html>
