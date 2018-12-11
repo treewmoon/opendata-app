@@ -31,19 +31,47 @@
         $('.GOAL').on('click', function(e){
           var formData = new FormData(this);
           clearTimeout(timerId);
-          console.log(timer.textContent);
+
+          //走った時間を秒数で表示
+          var running_time = timer.textContent.split(':');
+          var min = Number(running_time[0]);
+          var sec = Number(running_time[1]);
+          var running_time_sec = min*60 + sec;
+          console.log("-running_time_sec-");
+          console.log(running_time_sec);
+
           $("#input_running_time").attr("value", timer.textContent);
           var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;
           console.log('cal : %d', cal);
           $("#input_calory").attr("value", cal);
+
+          //スタート時刻を秒数で表示
+          var starttime =  $("#nowtime").data("nowtime");
+          var start_time = starttime.split(':');
+          var hour_s = Number(start_time[0]);
+          var min_s = Number(start_time[1]);
+          var start_time_sec = hour_s*3600 + min_s*60;
+          console.log("-start_time_sec-");
+          console.log(start_time_sec);
+
+          //電車の到着予定時刻を秒数で表示
+          var arrivalTime =  $("#arrivalTime").data("arrivaltime");
+          var arrival_time = arrivalTime.split(':');
+          var hour_a = Number(arrival_time[0]);
+          var min_a = Number(arrival_time[1]);
+          var arrival_time_sec = hour_a*3600 + min_a*60;
+          console.log("-arrivaltime_sec-");
+          console.log(arrival_time_sec);
+
+          console.log("-result-");
           var result;
-            if (parseFloat(timer.textContent) >= 1) {
-              result = 1;
-            } else {
+            if (arrival_time_sec >= start_time_sec + running_time_sec) {
               result = 0;
+            } else {
+              result = 1;
             }
-            console.log(result);
-            $("#result").attr("value", result);
+          console.log(result);
+          $("#result").attr("value", result);
         })
 
         var n = 0;
@@ -60,6 +88,7 @@
             console.log("else");
           };
         },3000);
+          //ここまで
 
         function stopTrain(){
           clearInterval(trainMove);
@@ -83,10 +112,14 @@
           </div>
         </div>
         <div>
-          到着時刻
-            <<%= Record.get_arrivalTime(@record.opponent,@record.goal_station_id)%>><br>
-          現在時刻
-            <<%= Record.get_now_time %>>
+          ゴール時刻
+            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id) %>
+            <%= arrivalTime %>
+            <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
+          スタート時刻
+            <% nowtime = Record.get_now_time %>
+            <%= nowtime %>
+            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
         </div>
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory">
