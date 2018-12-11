@@ -1,0 +1,192 @@
+
+
+
+// 新規登録画面用
+#signup-page {
+
+  margin-top: 50px;
+  width: 100%;
+
+  * {
+    padding:0;
+    margin:0;
+  }
+
+  body {
+    font-family:'Open Sans',sans-serif;
+  }
+
+  h3 {
+    // background:#64AA64;
+    font-size:175%;
+    font-weight:600;
+    text-align:center;
+    font-family: 'Impact',sans-serif;
+    color:#222222;
+    letter-spacing: 5px;
+  }
+
+  input[type="password"]{
+    width:92%;
+    height:10px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:300%;
+    color:#555;
+  }
+
+  input[type="email"]{
+    width:92%;
+    height:10px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:120%;
+    color:#555;
+  }
+
+  input[type="text"]{
+    width:92%;
+    height:10px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:140%;
+  }
+
+  input[type="submit"] {
+    width: 200px;
+    height: 70px;
+    font-family: 'impact';
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+
+  input[type="submit"]:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .actions{
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 0.8em;
+  }
+
+  }
+
+
+// ログイン画面用
+#login-page {
+
+  margin-top: 50px;
+  width: 100%;
+
+  * {
+    padding:0;
+    margin:0;
+  }
+
+  body {
+    font-family:'Open Sans',sans-serif;
+  }
+
+  h3 {
+    font-size:175%;
+    font-weight:600;
+    text-align:center;
+    font-family: 'Impact',sans-serif;
+    color:#222222;
+    letter-spacing: 5px;
+    padding-bottom: 20px;
+  }
+
+
+
+  input[type="password"]{
+    width:92%;
+    height:20px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:300%;
+    color:#555;
+  }
+
+  input[type="email"]{
+    width:92%;
+    height:20px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:120%;
+    color:#555;
+  }
+
+
+  input[type="text"]{
+    width:92%;
+    height:10px;
+    margin-bottom:4%;
+    border:1px solid #ccc;
+    padding:4% 4% 4% 4%;
+    font-family:'Open Sans',sans-serif;
+    font-size:140%;
+  }
+
+  input[type="submit"] {
+    width: 200px;
+    height: 70px;
+    font-family: 'impact';
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+
+  input[type="submit"]:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .actions{
+    text-align: center;
+    margin-top: 30px;
+  }
+
+}
+
+
+
