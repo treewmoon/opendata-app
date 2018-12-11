@@ -1,26 +1,40 @@
-<h2>Records/show画面</h2>
+<div id="records_show-page">
 
-<p> 結果 </p>
-<% if @record.result == 0%>
-  勝利
-<% else %>
-  敗北
-<% end %>
+  <h3> 結果発表!! </h3>
 
-<p> タイム </p>
-<%= @record.running_time %>
+  <div class="wrap">
 
-<p> 消費カロリー </p>
-<%= @record.consumed_calory %> kcal
+    <div class="circle">
+    <p class="time"><%= @record.running_time %></p>
+    </div>
 
-<p> スタート </p>
-<%= Station.find(@record.start_station_id).name_ja %> 駅
 
-<p> ゴール </p>
-<%= Station.find(@record.goal_station_id).name_ja %> 駅
+    <div class="circle1">
+    <p class="calory"><%= @record.consumed_calory %></p>
+    <p class="calory_1">kcal</p>
+    </div>
 
-<p> 対戦相手 </p>
-<%= @record.opponent %>
+    <div class="circle2">
+    <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
+    <i class="fa fa-arrow-down fa-2x"></i>
+    <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
+    </div>
 
-<br><br><br>
-<a class="btn" href="/">戻る</a>
+    <div class="circle3">
+    <% if @record.result == 0%>
+      <h2> YOU WIN! </h2>
+    <% else %>
+      <h2> YOU LOSE! </h2>
+    <% end %>
+    </div>
+
+  </div>
+
+
+  <br><br><br>
+  <div class="wrap2">
+  <button class="button2" onclick="location.href='/'">AGAIN</button>
+  </div>
+
+</div>
+
