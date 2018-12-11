@@ -1,24 +1,34 @@
-<h2>Users/show画面</h2>
+<div id="users-show">
+  <h2>JRE Run with Train</h2>
+    <table summary="プロフィール">
+      <tr>
+        <th class="t_top" width="100">名前</th>
+        <td class="t_top"><%= @user.name %></td>
+      </tr>
 
+      <tr>
+        <th>年齢</th>
+        <td><%= @user.age %> 歳</td>
+      </tr>
 
-<p> 名前 </p>
-<%= @user.name %>
+      <tr>
+        <th>性別</th>
+        <td><% if @user.gender == 0%>
+         男性
+        <% else %>
+        女性
+        <% end %></td>
+      </tr>
+      <tr>
+        <th>身長</th>
+        <td><%= @user.height %> cm</td>
+      </tr>
+      <tr>
+        <th>体重</th>
+        <td><%= @user.weight %> kg</td>
+      </tr>
+    </table>
 
-<p> 年齢 </p>
-<%= @user.age %> 歳
-
-<p> 性別 </p>
-<% if @user.gender == 0%>
-  男性
-<% else %>
-  女性
-<% end %>
-
-<p> 身長 </p>
-<%= @user.height %> cm
-
-<p> 体重 </p>
-<%= @user.weight %> kg
-
-<br><br><br>
-<a class="btn" href="/">戻る</a>
+    <br><br>
+  <a class="btn" href="/">戻る</a>
+</div>
