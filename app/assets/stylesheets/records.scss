@@ -43,28 +43,6 @@
     height: 125px;
   }
 
-  .half-circle-lo {
-    margin: 20px 0;
-    margin: 2.5rem 0;
-    margin: 0 auto;
-  }
-
-  .half-circle-mod {
-    background: #999;
-    height: 100px;
-    width: 200px;
-    behavior: url(/PIE.htc);
-    background-color: lime;
-  }
-
-  .half-circle-lo__half-circle-mod {
-    -moz-border-radius: 100px 100px 0 0;
-    -webkit-border-radius: 100px 100px 0 0;
-    -o-border-radius: 100px 100px 0 0;
-    -ms-border-radius: 100px 100px 0 0;
-    border-radius: 100px 100px 0 0;
-  }
-
   .start {
     height: 25px;
   }
@@ -175,6 +153,5 @@
     75% {transform: translate(2px, 0px) rotateZ(-1deg)}
     100% {transform: translate(0px, 0px) rotateZ(0deg)}
   }
-
 
 }
