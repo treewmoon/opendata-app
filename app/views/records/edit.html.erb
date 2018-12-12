@@ -28,6 +28,7 @@
           startTime = Date.now();
           countUp();
         }
+
         $('.GOAL').on('click', function(e){
           var formData = new FormData(this);
           clearTimeout(timerId);
@@ -36,7 +37,7 @@
           var min = Number(running_time[0]);
           var sec = Number(running_time[1]);
           var running_time_sec = min*60 + sec;
-          console.log("-running_time_sec-");
+          console.log("running_time_sec");
           console.log(running_time_sec);
 
           $("#input_running_time").attr("value", timer.textContent);
@@ -44,20 +45,7 @@
           console.log('cal : %d', cal);
           $("#input_calory").attr("value", cal);
 
-          var starttime =  $("#nowtime").data("nowtime");
-          var start_time = starttime.split(':');
-          var hour_s = Number(start_time[0]);
-          var min_s = Number(start_time[1]);
-          var start_time_sec = hour_s*3600 + min_s*60;
-          console.log("-start_time_sec-");
-          console.log(start_time_sec);
-
-          var arrivalTime =  $("#arrivalTime").data("arrivaltime");
-          var arrival_time = arrivalTime.split(':');
-          var hour_a = Number(arrival_time[0]);
-          var min_a = Number(arrival_time[1]);
-          var arrival_time_sec = hour_a*3600 + min_a*60;
-          console.log("-arrivaltime_sec-");
+          console.log("arrivaltime_sec");
           console.log(arrival_time_sec);
 
           var result;
@@ -66,24 +54,58 @@
             } else {
               result = 1;
             }
-          console.log("-result-");
+          console.log("result");
           console.log(result);
           $("#result").attr("value", result);
         })
 
+        //スタート時刻
+        var starttime =  $("#nowtime").data("nowtime");//スタート時刻取得
+        var start_time = starttime.split(':');
+        var hour_s = Number(start_time[0]);
+        var min_s = Number(start_time[1]);
+        var start_time_sec = hour_s*3600 + min_s*60;
+
+        //ゴール予定時刻
+        var arrivalTime =  $("#arrivalTime").data("arrivaltime");//ゴール予定時刻を取得
+        var arrival_time = arrivalTime.split(':');
+        var hour_a = Number(arrival_time[0]);
+        var min_a = Number(arrival_time[1]);
+        var arrival_time_sec = hour_a*3600 + min_a*60;//ゴール予定時刻を秒に変換
+        console.log("start_time_sec");
+        console.log(start_time_sec);
+        console.log("arrival_time_sec");
+        console.log(arrival_time_sec);
+
+        var trainRunningTime = arrival_time_sec - start_time_sec;//電車が進む時間(秒)
+        console.log("trainRunningTime");
+        console.log(trainRunningTime);
+        var speed_s = 244 / trainRunningTime;//電車が進む速さ(px/s)
+        var speed_ms = speed_s * 1000;//電車が進む速さ(px/ms)
+        console.log("speed_ms");
+        console.log(speed_ms);
+        var time_per_once_s = trainRunningTime/10;//1回(電車が走る時間を10等分)にかかる時間(秒)
+        var time_per_once_ms = time_per_once_s * 1000;
+        console.log("time_per_once_ms");
+        console.log(time_per_once_ms);
+
+//線路の幅、電車のイラストの幅を調べる。
+//線路の幅(344px)から電車の幅(100px)を引いたのが電車が走る距離。
         var n = 0;
         var img = $('img').css({left:'0',position:'absolute'});
-        var trainMove;
-        trainMove = setInterval(function(){
-          $('img').stop().animate({left:'+=' + '10' + 'px'},1000 );
+        var movemove = function(){
+          $('img').stop().animate({left:'+=' + 24 + 'px'},speed_ms);//speed_msの速さ(前なら1000px/s)で24px進む。
           n = n + 1;
-          if ( n >= 25 ) {
+          console.log(n);
+          if ( n >= 10 ) {//電車が走る時間を10等分。time_per_onceで10等分しているので。
             stopTrain();
-            console.log("a");
+            console.log("到着");
           }else{
-            console.log("else");
+            console.log("まだ");
           };
-        },3000);
+        }
+        var trainMove;
+        trainMove = setInterval(movemove,time_per_once_ms);//1回にかかる時間(前なら3000ミリ秒=3秒だった)ごとに。
 
         function stopTrain(){
           clearInterval(trainMove);
