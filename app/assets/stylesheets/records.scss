@@ -40,20 +40,15 @@
   .flex {
     display: flex;
     flex-flow: row wrap;
-    height: 125px;
+    height: 40vw;
   }
 
   .start {
-    height: 25px;
+    height: 8vw;
   }
 
   .goal {
-    height: 25px;
-  }
-
-  #duration.form-control {
-    width: 50px;
-    margin: 0 auto;
+    height: 8vw;
   }
 
   div{
@@ -62,8 +57,8 @@
   }
 
   .wrap1 {
-    height:80px;
-    width: 200px;
+    height:16vw;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,24 +92,24 @@
 
   h1,h2,h3,h4 {
     text-align: center;
-    margin: 10px;
+    margin: 4vw;
   }
 
   h2 {
-    margin-top: 20px;
+    margin-top: 6vw;
   }
 
   #timer {
-    height: 50px;
-    font-size: 50px;
+    height: 10vw;
+    font-size: 15vw;
     color: black;
-    line-height: 40px;
+    line-height: 15vw;
     font-family: monospace;
   }
 
   .container {
-    height: 10px;
-    width: 100%;
+    height: 10vw;
+    width: 100vw;
   }
 
   img {
@@ -123,18 +118,18 @@
   }
 
   .train {
-    width: 344px;
-    height: 50px;
+    width: 100vw;
+    height: 10vw;
     text-align: center;
-    border-bottom: dashed 10px #000;
+    border-bottom: dashed 5vw #000;
     box-shadow: 0px 1px #000,0px -1px #000 inset;
     display: flex;
     align-items: flex-end;
   }
 
   body {
-    font-size: 100%;
-    line-height: 140%;
+    font-size: 100vw;
+    line-height: 140vw;
     font-family: Arial,Helvetica,sans-serif;
     color: #000;
     text-align: center;
