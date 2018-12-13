@@ -80,8 +80,8 @@
         var trainRunningTime = arrival_time_sec - start_time_sec;//電車が進む時間(秒)
         console.log("trainRunningTime");
         console.log(trainRunningTime);
-        var speed_s = 244 / trainRunningTime;//電車が進む速さ(px/s)
-        var speed_ms = speed_s * 1000;//電車が進む速さ(px/ms)
+        var speed_s = 80 / trainRunningTime;//電車が進む速さ(vw/s)
+        var speed_ms = speed_s * 1000;//電車が進む速さ(vw/ms)
         console.log("speed_ms");
         console.log(speed_ms);
         var time_per_once_s = trainRunningTime/10;//1回(電車が走る時間を10等分)にかかる時間(秒)
@@ -89,12 +89,13 @@
         console.log("time_per_once_ms");
         console.log(time_per_once_ms);
 
-//線路の幅、電車のイラストの幅を調べる。
-//線路の幅(344px)から電車の幅(100px)を引いたのが電車が走る距離。
+//線路の幅（width: 100vw）、電車の幅（width: 20vw）を調べる。電車の幅は20vw、高さは10vwにした。
+//線路の幅(344px)から電車の幅(100px)を引いたのが電車が走る距離。（width: 80vw）
+//speed_sのところを80でvwにすると動く時のスピードが速すぎる。
         var n = 0;
         var img = $('img').css({left:'0',position:'absolute'});
         var movemove = function(){
-          $('img').stop().animate({left:'+=' + 24 + 'px'},speed_ms);//speed_msの速さ(前なら1000px/s)で24px進む。
+          $('img').stop().animate({left:'+=' + 8 + 'vw'},speed_ms);//speed_msの速さ(前なら1000px/s)で8vw進む。
           n = n + 1;
           console.log(n);
           if ( n >= 10 ) {//電車が走る時間を10等分。time_per_onceで10等分しているので。
@@ -129,14 +130,14 @@
           </div>
         </div>
         <div>
-          ゴール時刻
+          <h4>ゴール時刻
             <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id) %>
             <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           スタート時刻
             <% nowtime = Record.get_now_time %>
             <%= nowtime %>
-            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
+            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div></h4>
         </div>
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory">
