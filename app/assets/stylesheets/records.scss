@@ -35,42 +35,17 @@
   .flex {
     display: flex;
     flex-flow: row wrap;
-    height: 125px;
-  }
-
-  .half-circle-lo {
-    margin: 20px 0;
-    margin: 2.5rem 0;
-    margin: 0 auto;
-  }
-
-  .half-circle-mod {
-    background: #999;
-    height: 100px;
-    width: 200px;
-    behavior: url(/PIE.htc);
-    background-color: lime;
-  }
-
-  .half-circle-lo__half-circle-mod {
-    -moz-border-radius: 100px 100px 0 0;
-    -webkit-border-radius: 100px 100px 0 0;
-    -o-border-radius: 100px 100px 0 0;
-    -ms-border-radius: 100px 100px 0 0;
-    border-radius: 100px 100px 0 0;
+    height: 40vw;
   }
 
   .start {
-    height: 25px;
+    height: 8vw;
+    font-size: 4vw;
   }
 
   .goal {
-    height: 25px;
-  }
-
-  #duration.form-control {
-    width: 50px;
-    margin: 0 auto;
+    height: 8vw;
+    font-size: 4vw;
   }
 
   div{
@@ -79,12 +54,12 @@
   }
 
   .wrap1 {
-    height:80px;
-    width: 200px;
+    height:16vw;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px auto;
+    margin: 0 auto;
   }
 
   .GOAL {
@@ -112,68 +87,71 @@
     transform: translateY(-7px);
   }
 
-  h1,h2,h3,h4 {
+  h1,h2,h3{
     text-align: center;
-    margin: 10px;
+    margin: 4vw;
+    font-size: 8vw;
   }
 
   h2 {
-    margin-top: 20px;
+    margin-top: 6vw;
+  }
+
+  h4 {
+    font-size: 4vw;
+    margin: 0;
   }
 
   #timer {
-    height: 80px;
-    font-size: 50px;
+    height: 10vw;
+    font-size: 15vw;
     color: black;
-    line-height: 40px;
+    line-height: 15vw;
     font-family: monospace;
   }
 
   .container {
-    height: 10px;
-    width: 100%;
-  }
-
-  #timer {
-    height: 50px;
+    height: 10vw;
+    width: 100vw;
   }
 
   img {
     vertical-align: text-bottom;
     -ms-interpolation-mode: bicubic;
+    height: 10vw;
+    width: 20vw;
   }
 
   .train {
-    width: 100%;
-    height: 100px;
+    width: 100vw;
+    height: 10vw;
     text-align: center;
-    border-bottom: dashed 10px #000;
+    border-bottom: dashed 5vw #000;
     box-shadow: 0px 1px #000,0px -1px #000 inset;
     display: flex;
     align-items: flex-end;
   }
 
   body {
-    font-size: 100%;
-    line-height: 140%;
+    font-size: 100vw;
+    line-height: 140vw;
     font-family: Arial,Helvetica,sans-serif;
     color: #000;
     text-align: center;
     background: #fff;
   }
 
-  .buruburu {
+  .vibration {
     display: inline-block;
-    animation: hurueru .1s  infinite;
+    animation: shaking .5s  infinite;
   }
 
-  @keyframes hurueru {
+  @keyframes shaking {
     0% {transform: translate(0px, 0px) rotateZ(0deg)}
     25% {transform: translate(2px, 2px) rotateZ(1deg)}
     50% {transform: translate(0px, 2px) rotateZ(0deg)}
     75% {transform: translate(2px, 0px) rotateZ(-1deg)}
     100% {transform: translate(0px, 0px) rotateZ(0deg)}
   }
-
 
 }
