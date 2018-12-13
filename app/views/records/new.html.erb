@@ -1,46 +1,46 @@
 <script>
   $(function(){
 
-    $('.start_stations').on('click', function(e){
-      $(".start_stations").removeClass("selected");
-      $(this).addClass("selected");
-      $(this).fadeOut(50);
-      $(this).fadeIn(50);
-      e.preventDefault();
-      console.log(this.id)
-      $("#form_start_station").attr("value", this.id);
-    })
+    // $('.start_stations').on('click', function(e){
+    //   $(".start_stations").removeClass("selected");
+    //   $(this).addClass("selected");
+    //   $(this).fadeOut(50);
+    //   $(this).fadeIn(50);
+    //   e.preventDefault();
+    //   console.log(this.id)
+    //   $("#form_start_station").attr("value", this.id);
+    // })
 
     //TSETボタンをしたときの動作
-    $('#test').on('click', function(e){
-      var p1 = $('.mark1').offset().left;
-      console.log("p1 : " + p1);
-      var p2 = $('.mark2').offset().left;
-      console.log("p2 : " + p2);
-      var p3 = $('.mark3').offset().left;
-      console.log("p3 : " + p3);
-      var p4 = $('.mark4').offset().left;
-      console.log("p4 : " + p4);
-      var p5 = $('.mark5').offset().left;
-      console.log("p5 : " + p5);
-      var p6 = $('.mark6').offset().left;
-      console.log("p6 : " + p6);
-    })
+    // $('#test').on('click', function(e){
+    //   var p1 = $('#mark1').offset().left;
+    //   console.log("p1 : " + p1);
+    //   var p2 = $('#mark2').offset().left;
+    //   console.log("p2 : " + p2);
+    //   var p3 = $('#mark3').offset().left;
+    //   console.log("p3 : " + p3);
+    //   var p4 = $('#mark4').offset().left;
+    //   console.log("p4 : " + p4);
+    //   var p5 = $('#mark5').offset().left;
+    //   console.log("p5 : " + p5);
+    //   var p6 = $('#mark6').offset().left;
+    //   console.log("p6 : " + p6);
+    // })
 
 
 
     window.onload = function(){
-      setInterval(changeLiCss, 1);
+      setInterval(changeListCss, 1);
     }
 
     //現在時刻を表示する関数
-    var changeLiCss = function(){
-      var p1 = $('.mark1').offset().left;
-      var p2 = $('.mark2').offset().left;
-      var p3 = $('.mark3').offset().left;
-      var p4 = $('.mark4').offset().left;
-      var p5 = $('.mark5').offset().left;
-      var p6 = $('.mark6').offset().left;
+    var changeListCss = function(){
+      var p1 = $('#mark1').offset().left;
+      var p2 = $('#mark2').offset().left;
+      var p3 = $('#mark3').offset().left;
+      var p4 = $('#mark4').offset().left;
+      var p5 = $('#mark5').offset().left;
+      var p6 = $('#mark6').offset().left;
 
       var ele = document.getElementsByClassName("start_stations");
       for(var i = 0; i < ele.length; i++){
@@ -60,6 +60,7 @@
           // ele[i].textContent = ele[i].textContent + "　　　"
         }else if(p3 <= pos && pos < p4){
           $(ele[i]).addClass("in_1");
+          $("#form_start_station").attr("value", ele[i].id);
         }else if(p4 <= pos && pos < p5){
           $(ele[i]).addClass("in_2");
         }else if(p5 <= pos && pos < p6){
@@ -103,12 +104,14 @@
       <li class="item"></li>
       <li class="item"></li>
     </ul>
-    <div class = "mark1">|</div>
-    <div class = "mark2">|</div>
-    <div class = "mark3">|</div>
-    <div class = "mark4">|</div>
-    <div class = "mark5">|</div>
-    <div class = "mark6">|</div>
+    <div class = "marks">
+      <div class = "mark" id = "mark1">|</div>
+      <div class = "mark" id = "mark2">|</div>
+      <div class = "mark" id = "mark3">|</div>
+      <div class = "mark" id = "mark4">|</div>
+      <div class = "mark" id = "mark5">|</div>
+      <div class = "mark" id = "mark6">|</div>
+    </div>
   </div>
 
 

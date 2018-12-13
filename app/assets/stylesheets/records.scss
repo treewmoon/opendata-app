@@ -7,22 +7,26 @@
 #record-new {
   font-family: 'impact';
 
-.mark1{
+.mark{
+  height:1vw;
+  color:white;
+}
+#mark1{
   margin:0 0 0 5vw;
 }
-.mark2{
+#mark2{
   margin:0 0 0 20vw;
 }
-.mark3{
+#mark3{
   margin:0 0 0 38vw;
 }
-.mark4{
+#mark4{
   margin:0 0 0 59vw;
 }
-.mark5{
+#mark5{
   margin:0 0 0 77vw;
 }
-.mark6{
+#mark6{
   margin:0 0 0 92vw;
 }
 
@@ -46,7 +50,7 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
-  height: 38vw;
+  height: 30vw;
 }
 .item {
   display: inline-block;
