@@ -3,35 +3,134 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.input__button {
-  width: 140px;
-  height: 45px;
-  font-family: 'impact';
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  }
 
-.input__button:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
+#record-new {
+  font-family: 'impact';
+
+.mark1{
+  margin:0 0 0 5vw;
+}
+.mark2{
+  margin:0 0 0 20vw;
+}
+.mark3{
+  margin:0 0 0 38vw;
+}
+.mark4{
+  margin:0 0 0 59vw;
+}
+.mark5{
+  margin:0 0 0 77vw;
+}
+.mark6{
+  margin:0 0 0 92vw;
+}
+
+.circle_img{
+  height: 10vw;
+  width: 20vw;
+  padding: 0 0 20vw 0;
+}
+.y_circle{
+  height: 30vw;
+  width: 100vw;
+  position: absolute; left: 0vw;
+}
+.title{
+  margin:0 0 0 0;
+  text-align: center;
+  padding: 20vw 0 0 0;
+}
+.station-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  height: 38vw;
+}
+.item {
+  display: inline-block;
+  width: 24%;
+  height:74%;
+
+}
+.start_stations{
+  height:100%;
+  // text-align: end;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+.selected{
+  color:#51cf66;
+}
+
+.in_4{
+  color:#e9ecef;
+  font-size: 1vw;
+}
+.in_3{
+  color:#ced4da;
+  font-size: 3vw;
+}
+.in_2{
+  color:#495057;
+  font-size: 5vw;
+}
+.in_2:after {
+content: "";
+}
+
+.in_1{
+  color:#51cf66;
+  font-size: 7vw;
+}
+
+
+
+
+
+
+
+  .button {
+    height:80px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+  }
+  .input__button {
+    width: 140px;
+    height: 45px;
+    font-family: 'impact';
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  .input__button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
 }
 
 
 .hidden__content{
   display:none;
 }
+
+
 
 
 #record-edit {
