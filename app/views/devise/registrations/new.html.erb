@@ -19,6 +19,23 @@
       <%= f.text_field :weight, autofocus: true ,:placeholder => "ex. 60kgの場合 60 と入力" %>
     </div>
 
+    <div class="field">a
+      <%= f.label :age %><br />
+      <%= f.text_field :age, autofocus: true ,:placeholder => "ex. 25" %>
+    </div>
+
+    <div class="field">
+      <div>karioki</div>
+      <%= f.label :gender %><br />
+      <%= f.text_field :gender, autofocus: true ,:placeholder => "1" %>
+    </div>
+
+    <div class="field">
+      <div>height</div>
+      <%= f.label :height %><br />
+      <%= f.text_field :height, autofocus: true ,:placeholder => "1" %>
+    </div>
+
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>

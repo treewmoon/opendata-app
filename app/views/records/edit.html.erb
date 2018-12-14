@@ -24,12 +24,10 @@
           },10);
         }
         window.onload = function(){
-          var formData = new FormData(this);
           startTime = Date.now();
           countUp();
         }
         $('.GOAL').on('click', function(e){
-          var formData = new FormData(this);
           clearTimeout(timerId);
           console.log(timer.textContent);
           $("#input_running_time").attr("value", timer.textContent);
