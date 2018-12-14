@@ -24,13 +24,11 @@
           },10);
         }
         window.onload = function(){
-          var formData = new FormData(this);
           startTime = Date.now();
           countUp();
         }
 
         $('.GOAL').on('click', function(e){
-          var formData = new FormData(this);
           clearTimeout(timerId);
 
           var running_time = timer.textContent.split(':');

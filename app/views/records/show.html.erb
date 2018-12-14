@@ -1,39 +1,40 @@
 <div id="records_show-page">
 
-  <h3> 結果発表!! </h3>
-
   <div class="wrap">
-
-    <div class="circle">
-    <p class="time"><%= @record.running_time %></p>
-    </div>
-
-
-    <div class="circle1">
-    <p class="calory"><%= @record.consumed_calory %></p>
-    <p class="calory_1">kcal</p>
-    </div>
-
-    <div class="circle2">
-    <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
-    <i class="fa fa-arrow-down fa-2x"></i>
-    <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
-    </div>
-
-    <div class="circle3">
+    <div>
     <% if @record.result == 0%>
-      <h2> YOU WIN! </h2>
+    <h3 class="win"> YOU WIN! </h3>
     <% else %>
-      <h2> YOU LOSE! </h2>
+    <h3 class="lose"> YOU LOSE! </h3>
     <% end %>
     </div>
 
-  </div>
+    <div class="flex">
+
+      <div class="train">
+
+      <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
 
 
-  <br><br><br>
-  <div class="wrap2">
-  <button class="button2" onclick="location.href='/'">AGAIN</button>
+      <%= image_tag '9407.jpg', :size =>'100x50', class: "buruburu" %>
+      <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
+
+      </div>
+    </div>
+
+    <div class="circle1">
+      <p class="time"><%= @record.running_time %></p>
+    </div>
+
+    <div class="circle2">
+      <p class="calory"><%= @record.consumed_calory %></p>
+      <p class="calory_1">kcal</p>
+    </div>
+
+    <div class="wrap2">
+      <button class="button2" onclick="location.href='/'">AGAIN</button>
+    </div>
+
   </div>
 
 </div>
