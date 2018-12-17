@@ -14,3 +14,22 @@
  *= require_self
  *= require font-awesome
  */
+
+header {
+  background-color: silver;
+  height: 20vw;
+  width: 100%;
+}
+
+a {
+  font-family: 'Impact';
+}
+
+.back, .logout, .grid-6 {
+  margin: 0 auto;
+  width: 30%;
+  float: left;
+  text-align: center;
+  line-height:20vw;
+}
+
