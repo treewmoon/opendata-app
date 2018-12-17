@@ -1,45 +1,46 @@
 <script>
   $(function(){
-      var opponent = document.getElementById('opponent');
-
-
       $('.opponents').on('click', function(e){
-        opponent.textContent = this.id
         e.preventDefault();
-        console.log(this.id)
-        $("#form_opponent").attr("value", opponent.textContent);
+        var ele = document.getElementsByClassName("opponents");
+        for(var i = 0; i < ele.length; i++){
+           $(ele[i]).removeClass("selected");
+        }
+        $(this).addClass("selected");
+        $("#form_opponent").attr("value", this.id);
       })
-
-
-
-
     })
-
 </script>
 
+<div id="record-new-last">
 
-<h2>相手設定</h2>
+  <div class="title">
+    <h2>Select your Opponent !</h2>
+  </div>
 
-<div>
-  <%Record.search_trains(@record.start_station_id,@record.goal_station_id,@record.direction,5).each do |opponent| %>
-    <a href="" id = <%=opponent["number"]%> class = "opponents"><%= opponent["number"]%> </a>
-    <<%= Station.find(@record.goal_station_id).name_ja%>駅到着予定時刻 : <%= opponent["goal_time"] %>>
-    <br>
+  <div class="main-content">
+    <ul>
+      <%Record.search_trains(@record.start_station_id,@record.goal_station_id,@record.direction).each do |opponent| %>
+        <li>
+          <div class = "opponents" id = <%=opponent["number"]%>>
+            <div class = "number"><i class="fa fa-subway"></i>　<%= opponent["number"]%></div>
+            <div class = "time">
+            <<%= Station.find(@record.start_station_id).name_ja%>駅<%= opponent["start_time"] %>
+              　⇒　
+            <%= Station.find(@record.goal_station_id).name_ja%>駅<%= opponent["goal_time"] %>>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-
-  <% end %>
-</div>
-
-
-<br><br>選択されている対戦相手<br>
-<div id="opponent">1333G</div>
-
-
-<div class="wrap1">
-
+  <div class = "button">
     <%= form_tag("/records/#{@record.id}/set_opponent", method: :patch) do %>
       <input id = "form_opponent" name="opponent" type = "hidden">
-      <button class ="input__button "id = "start" type="submit">NEXT</button>
+      <button class ="input__button "id = "start" type="submit">START</button>
     <% end %>
+  </div>
 
 </div>
+
