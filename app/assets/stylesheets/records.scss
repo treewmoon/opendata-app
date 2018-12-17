@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
 #record-new {
   font-family: 'impact';
@@ -123,8 +123,143 @@
 //   display:none;
 // }
 
+#record-new-next{
 
 
+
+  .title{
+    margin:0 0 0 0;
+    text-align: center;
+    padding: 20vw 0 0 0;
+  }
+
+
+  .button {
+    height:80px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+  }
+  .input__button {
+    width: 140px;
+    height: 45px;
+    font-family: 'impact';
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  .input__button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+}
+
+
+
+#record-new-last{
+
+  font-family: Lato;
+  background-color: #f1f3f5;
+  color:#495057;
+  height: 100%;
+  width: 100%;
+
+  .main-content{
+    height:80vw;
+    overflow:scroll;
+  }
+  ul {
+    list-style: none;
+    margin:0 auto;
+    padding:0;
+  }
+  .opponents{
+    border-style: solid;
+    border-color: #f1f3f5;
+    border-width: 2vw;
+    background-color: white;
+    height: 11vw;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .number{
+    color:#0ca678;
+    text-align:center;
+    font-size:4vw;
+  }
+  .time{
+    color:#adb5bd;
+    text-align:center;
+    font-size:2vw;
+  }
+
+
+  .selected{
+    background-color:#0ca678;
+    .number{
+      color:white;
+    }
+    .time{
+      color:white;
+    }
+  }
+
+  .title{
+    margin:0 0 0 0;
+    text-align: center;
+    padding: 20vw 0 0 0;
+  }
+
+
+  .button {
+    padding:5vw 0;
+    height:80px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+  }
+  .input__button {
+    width: 140px;
+    height: 45px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: white;
+    // background-color: #fff;
+    background-color: #0ca678;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+
+
+
+
+
+
+
+}
 
 #record-edit {
   font-family: 'impact';
