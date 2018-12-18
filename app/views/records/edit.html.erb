@@ -129,7 +129,8 @@
         </div>
         <div>
           <h4>ゴール時刻
-            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id) %>
+            <% json = Jre_api.get_train_timetable %>
+            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
             <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           スタート時刻
