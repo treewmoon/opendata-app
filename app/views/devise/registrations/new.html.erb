@@ -25,13 +25,11 @@
     </div>
 
     <div class="field">
-      <div>karioki</div>
       <%= f.label :gender %><br />
       <%= f.text_field :gender, autofocus: true ,:placeholder => "1" %>
     </div>
 
     <div class="field">
-      <div>height</div>
       <%= f.label :height %><br />
       <%= f.text_field :height, autofocus: true ,:placeholder => "1" %>
     </div>
@@ -49,7 +47,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
-    <div class="actions">
+    <div class="actions" ontouchstart="">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>
