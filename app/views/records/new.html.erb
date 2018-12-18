@@ -1,40 +1,145 @@
-<h2>スタート設定</h2>
-
-
 <script>
   $(function(){
-      var start = document.getElementById('start');
+
+    // $('.start_stations').on('click', function(e){
+    //   $(".start_stations").removeClass("selected");
+    //   $(this).addClass("selected");
+    //   $(this).fadeOut(50);
+    //   $(this).fadeIn(50);
+    //   e.preventDefault();
+    //   console.log(this.id)
+    //   $("#form_start_station").attr("value", this.id);
+    // })
+
+    //TSETボタンをしたときの動作
+    // $('#test').on('click', function(e){
+    //   var p1 = $('#mark1').offset().left;
+    //   console.log("p1 : " + p1);
+    //   var p2 = $('#mark2').offset().left;
+    //   console.log("p2 : " + p2);
+    //   var p3 = $('#mark3').offset().left;
+    //   console.log("p3 : " + p3);
+    //   var p4 = $('#mark4').offset().left;
+    //   console.log("p4 : " + p4);
+    //   var p5 = $('#mark5').offset().left;
+    //   console.log("p5 : " + p5);
+    //   var p6 = $('#mark6').offset().left;
+    //   console.log("p6 : " + p6);
+    // })
 
 
-      $('.start_station').on('click', function(e){
-        start.textContent = this.id
-        e.preventDefault();
-        console.log(this.id)
-        $("#form_start_station").attr("value", start.textContent);
-      })
+
+    window.onload = function(){
+      setInterval(changeListCss,100);
+    }
+
+    var changeListCss = function(){
+      var p1 = $('#mark1').offset().left;
+      var p2 = $('#mark2').offset().left;
+      var p3 = $('#mark3').offset().left;
+      var p4 = $('#mark4').offset().left;
+      var p5 = $('#mark5').offset().left;
+      var p6 = $('#mark6').offset().left;
+
+      var ele = document.getElementsByClassName("start_stations");
+      for(var i = 0; i < ele.length; i++){
+        var pos = $(ele[i]).offset().left;
+        if(pos < p1){
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_2");
+          $(ele[i]).removeClass("in_3");
+          $(ele[i]).addClass("in_4");
+        }else if(p1 <= pos && pos < p2){
+          if($(ele[i]).hasClass("in_3")){
+            break;
+          }
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_2");
+          $(ele[i]).removeClass("in_4");
+          $(ele[i]).addClass("in_3");
+        }else if(p2 <= pos && pos < p3){
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_3");
+          $(ele[i]).removeClass("in_4");
+          $(ele[i]).addClass("in_2");
+          // ele[i].textContent = ele[i].textContent + "　　　"
+        }else if(p3 <= pos && pos < p4){
+          $(ele[i]).removeClass("in_2");
+          $(ele[i]).removeClass("in_3");
+          $(ele[i]).removeClass("in_4");
+          $(ele[i]).addClass("in_1");
+          $("#form_start_station").attr("value", ele[i].id);
+        }else if(p4 <= pos && pos < p5){
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_3");
+          $(ele[i]).removeClass("in_4");
+          $(ele[i]).addClass("in_2");
+        }else if(p5 <= pos && pos < p6){
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_2");
+          $(ele[i]).removeClass("in_4");
+          $(ele[i]).addClass("in_3");
+        }else if(p6 <= pos){
+          $(ele[i]).removeClass("in_1");
+          $(ele[i]).removeClass("in_2");
+          $(ele[i]).removeClass("in_3");
+          $(ele[i]).addClass("in_4");
+          break;
+        }
+      }
 
 
 
 
-    })
+
+    }
+
+  })
+
+
 
 </script>
 
-<br><p>選択されている駅id</p>
-<div id="start">13</div>
+
+<div id="record-new">
+  <div class = "title">
+    <h2>Where to Start ?</h2>
+  </div>
+
+  <div class="main-content">
+    <div class="circle_img">
+      <img class="y_circle" src="/assets/circle.png"/>
+    </div>
+
+    <ul class="station-list">
+      <li class="item"></li>
+      <li class="item"></li>
+      <% for i in 1..29 do %>
+        <li class="item">
+          <div class = "start_stations" id = <%=i%> ><%= Station.find(i).name_ja %></div>
+        </li>
+      <% end %>
+      <li class="item"></li>
+      <li class="item"></li>
+    </ul>
+    <div class = "marks">
+      <div class = "mark" id = "mark1">|</div>
+      <div class = "mark" id = "mark2">|</div>
+      <div class = "mark" id = "mark3">|</div>
+      <div class = "mark" id = "mark4">|</div>
+      <div class = "mark" id = "mark5">|</div>
+      <div class = "mark" id = "mark6">|</div>
+    </div>
+  </div>
 
 
-<div id = "select__start" >
-  <% for i in 1..29 do %>
-    ・<a href="" id = <%=i%> class = "start_station"><%= Station.find(i).name_ja %>駅 </a><br>
-  <% end %>
-</div>
-
-
-<div class="wrap1">
+  <div class = "button">
     <%= form_tag('/records', method: :post) do %>
       <input id = "form_start_station" name="start_station_id" type = "hidden">
       <button class ="input__button" id = "next_1" type="submit">NEXT</button>
     <% end %>
-
+    <!-- <div>
+      <button class ="input__button" id = "test">TEST</button>
+    </div> -->
+  </div>
 </div>
