@@ -54,11 +54,17 @@ class Record < ApplicationRecord
       end
       opponent["start_time"] = Record.get_arrivalTime(opponent["number"],s_i,main_json)
       opponent["goal_time"] = Record.get_arrivalTime(opponent["number"],g_i,main_json)
+      opponent["time_for_sort"] = opponent["start_time"].gsub(/:/, "").to_i
       opponents << opponent
     end
 
+    # opponents.sort_by! { |a| a[:time_for_sort] }
+    # new_opponents = opponents.sort!{ |a, b| a[:time_for_sort] <=> b[:time_for_sort] }
+
     return opponents
   end
+
+
 
 
   #ある電車がある駅に到着する時間を返す
