@@ -1,16 +1,10 @@
 <script>
   $(function(){
-      var goal = document.getElementById('goal');
-
-
       $('.goal_stations').on('click', function(e){
-        goal.textContent = this.id
         e.preventDefault();
-        console.log(this.id)
-        $("#form_goal_station").attr("value", goal.textContent);
+        $("#form_goal_station").attr("value", this.id);
         $("#form_direction").attr("value", 0);
       })
-
     })
 
 
@@ -67,9 +61,6 @@ $(document).ready(function(){
 
 </div>
 
-
-<!-- <div class = "hidden__content" id="goal">00:00:000</div> -->
-<div id="goal">13</div>
 
 
 
