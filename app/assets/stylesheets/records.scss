@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+
 .input__button {
   width: 140px;
   height: 45px;
@@ -30,7 +33,9 @@
 
 
 #record-edit {
-  font-family: 'impact';
+  font-family: Lato;
+  color: #495057;
+  background-color:  #f1f3f5;
 
   .flex {
     display: flex;
@@ -65,23 +70,22 @@
   .GOAL {
     height: 45px;
     width: 140px;
-    font-family: 'impact';
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    background-color: #f1f3f5;
     border: none;
     border-radius: 45px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    color: #495057;
   }
 
   .GOAL:hover {
-    background-color: lime;
+    background-color: #0ca678;
     box-shadow: 0px 15px 20px rgba(10, 229, 100, 0.4);
     color: #fff;
     transform: translateY(-7px);
@@ -105,7 +109,6 @@
   #timer {
     height: 10vw;
     font-size: 15vw;
-    color: black;
     line-height: 15vw;
     font-family: monospace;
   }
@@ -126,8 +129,8 @@
     width: 100vw;
     height: 10vw;
     text-align: center;
-    border-bottom: dashed 5vw #000;
-    box-shadow: 0px 1px #000,0px -1px #000 inset;
+    border-bottom: dashed 5vw #495057;
+    box-shadow: 0px 1px #495057,0px -1px #495057 inset;
     display: flex;
     align-items: flex-end;
   }
@@ -138,7 +141,7 @@
     font-family: Arial,Helvetica,sans-serif;
     color: #000;
     text-align: center;
-    background: #fff;
+    background-color:  #f1f3f5;
   }
 
   .vibration {

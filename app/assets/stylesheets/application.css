@@ -15,14 +15,17 @@
  *= require font-awesome
  */
 
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
 header {
-  background-color: silver;
+  background-color: #f1f3f5;
   height: 20vw;
   width: 100%;
 }
 
 a {
-  font-family: 'Impact';
+  font-family: Lato;
+  color: #495057;
 }
 
 .back, .logout, .grid-6 {
