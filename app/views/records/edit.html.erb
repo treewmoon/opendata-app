@@ -1,5 +1,4 @@
 <div id="record-edit">
-  <h2>Records/edit画面</h2>
   <div id="timer">00:00</div>
     <script>
       $(function(){
@@ -116,7 +115,7 @@
   <div class="contents row">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <div class="container">
-        <h2>RUN NOW!</h2>
+        <h2>RUN NOW</h2>
         <h2><%= current_user.name %> VS 山手線</h2>
         <div class="flex">
           <div class="start"> START

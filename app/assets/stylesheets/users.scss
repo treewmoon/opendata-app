@@ -2,8 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
 html, body {
   height: 100%;
+  font-family: Lato;
+  color: #495057;
+  background-color: #f1f3f5;
 }
 
 .wrap1 {
@@ -27,13 +33,12 @@ html, body {
 .button1 {
   width: 140px;
   height: 45px;
-  font-family: 'impact';
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
-  background-color: #fff;
+  color: #495057;
+  background-color: #f1f3f5;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -43,7 +48,7 @@ html, body {
   }
 
 .button1:hover {
-  background-color: #2EE59D;
+  background-color: #0ca678;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
@@ -52,13 +57,12 @@ html, body {
 .button2 {
   width: 140px;
   height: 45px;
-  font-family: 'impact';
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
-  background-color: #fff;
+  color: #495057;
+  background-color: #f1f3f5;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -80,8 +84,8 @@ html, body {
   border-radius: 50%;
   margin: 50px auto 50px auto;
   position: relative;
-  border: solid 10px lime;
-  border: 10px dashed lime;
+  border: solid 10px #0ca678;
+  border: 10px dashed #0ca678;
   position: relative;
 }
 
@@ -95,6 +99,5 @@ html, body {
   transform: translateY(-50%);
   width :250px;
   text-align:center;
-  font-family: impact;
   font-size: 40px;
 }
