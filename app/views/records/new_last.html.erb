@@ -15,7 +15,7 @@
 <div id="record-new-last">
 
   <div class="title">
-    <h2>Select your Opponent !</h2>
+    <h2>Select Opponent !</h2>
   </div>
 
   <div class="main-content">
@@ -25,9 +25,9 @@
           <div class = "opponents" id = <%=opponent["number"]%>>
             <div class = "number"><i class="fa fa-subway"></i>　<%= opponent["number"]%></div>
             <div class = "time">
-            <<%= Station.find(@record.start_station_id).name_ja%>駅<%= opponent["start_time"] %>
-              　⇒　
-            <%= Station.find(@record.goal_station_id).name_ja%>駅<%= opponent["goal_time"] %>>
+            <%= Station.find(@record.start_station_id).name_ja%>駅<%= opponent["start_time"] %>
+               ⇒
+            <%= Station.find(@record.goal_station_id).name_ja%>駅<%= opponent["goal_time"] %>
             </div>
           </div>
         </li>

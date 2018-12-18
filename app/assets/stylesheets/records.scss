@@ -5,7 +5,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
 #record-new {
-  font-family: 'impact';
+  font-family: Lato;
+  color:#495057;
 
   .circle_img{
     height: 10vw;
@@ -82,10 +83,11 @@
   // content: "";
   // }
   .in_1{
-    color:#51cf66;
+    color:#0ca678;
     font-size: 7vw;
   }
   .button {
+    padding:5vw 0;
     height:80px;
     width: 200px;
     display: flex;
@@ -96,13 +98,12 @@
   .input__button {
     width: 140px;
     height: 45px;
-    font-family: 'impact';
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    color: white;
+    background-color: #0ca678;
     border: none;
     border-radius: 45px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -110,22 +111,94 @@
     cursor: pointer;
     outline: none;
   }
-  .input__button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+
+}
+
+
+
+
+
+
+//謎
+#container{
+  margin: 0 auto;
+  width: 80%;
+  text-align: left;
+  position: relative;
+  .widget{
+    background-color: #fff;
+    color: #333;
+    padding: 7px;
+    width: 100%;
+  }
+  .widget ul{
+    list-style-position: inside;
+  }
+  .new-widget{
+    margin: 0px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    background-color: #fff;
+    width: 80%;
+    clear: both;
+  }
+  .new-widget ul{
+    display: none;
+  }
+  .tab-wrapper{
+    width: 1000vw;
+    padding: 0;
+  }
+  .tab{
+    padding: 8px 10px;
+    margin-right: 5px;
+    font-size: 0.9em;
+    border-radius: 10px 10px 0 0;
+    float: left;
+    background: #eee;
+    text-transform: capitalize;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    list-style: none!important;
+    transition: all 200ms;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+  .active-tab{
+    background: #0ca678;
     color: #fff;
-    transform: translateY(-7px);
+  }
+  /* TABLE STYLING */
+  .group-table {
+    border-top: 1px solid #ddd;
+    width:80%;
+      border-collapse:collapse;
+      padding:5px;
+      text-align: center;
+    }
+  .group-table th {
+    padding: 10px 5px;
+    font-weight: normal;
+    background:#0ca678;
+    color: #fff;
+  }
+  .group-table td {
+    padding:10px 2px;
+  }
+  .group-table th, .group-table td {
+    border-right: 1px solid #ddd;
+  }
+  .group-table tr:nth-child(odd) {
+    background: #f0f0f0;
   }
 }
 
 
-// .hidden__content{
-//   display:none;
-// }
+
 
 #record-new-next{
-
-
 
   .title{
     margin:0 0 0 0;
@@ -179,7 +252,7 @@
   width: 100%;
 
   .main-content{
-    height:80vw;
+    height:95vw;
     overflow:scroll;
   }
   ul {
@@ -192,20 +265,20 @@
     border-color: #f1f3f5;
     border-width: 2vw;
     background-color: white;
-    height: 11vw;
-    width: 80%;
+    height: 18vw;
+    width: 90%;
     margin: 0 auto;
   }
 
   .number{
     color:#0ca678;
     text-align:center;
-    font-size:4vw;
+    font-size:6vw;
   }
   .time{
     color:#adb5bd;
     text-align:center;
-    font-size:2vw;
+    font-size:5vw;
   }
 
 
@@ -222,7 +295,7 @@
   .title{
     margin:0 0 0 0;
     text-align: center;
-    padding: 20vw 0 0 0;
+    padding: 15vw 0 0 0;
   }
 
 

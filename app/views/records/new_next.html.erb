@@ -11,16 +11,36 @@
         $("#form_direction").attr("value", 0);
       })
 
-
-
-
     })
+
+
+$(document).ready(function(){
+  var newWidget="<div class='widget-wrapper'> <ul class='tab-wrapper'></ul> <div class='new-widget'></div></div>";
+  $(".widget").hide();
+  $(".widget:first").before(newWidget);
+  $(".widget > div").each(function(){
+    $(".tab-wrapper").append("<li class='tab'>"+this.id+"</li>");
+    $(this).appendTo(".new-widget");
+  });
+  $(".tab").click(function(){
+    $(".new-widget > div").hide();
+    $('#'+$(this).text()).show();
+    $(".tab").removeClass("active-tab");
+    $(this).addClass("active-tab");
+  });
+  $(".tab:first").click();
+});
 
 </script>
 
 
-<h2>ゴール設定</h2>
-   <div id = "select__goal__inner" >
+<div id="record-new-next">
+  <div class="title">
+    <h2>Where to Goal ?</h2>
+  </div>
+
+  <div class="main-content">
+    <div id = "select__goal__inner" >
     <strong>内回り(近い４駅)</strong><br>
     <% Record.get_stations_inner(@record.start_station_id,4).each do |station| %>
       ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
@@ -33,17 +53,89 @@
       ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
     <% end %>
    </div>
+  </div>
 
-<br><p>選択されている駅id</p>
+  <div class = "button">
+    <%= form_tag("/records/#{@record.id}/set_goal", method: :patch) do %>
+      <input id = "form_goal_station" name="goal_station_id" type = "hidden">
+      <input id = "form_direction" name="direction" type = "hidden">
+      <button class ="input__button "id = "start" type="submit">NEXT</button>
+    <% end %>
+  </div>
+
+
+</div>
+
+
 <!-- <div class = "hidden__content" id="goal">00:00:000</div> -->
 <div id="goal">13</div>
 
-<div class="wrap1">
-  <%= form_tag("/records/#{@record.id}/set_goal", method: :patch) do %>
-    <input id = "form_goal_station" name="goal_station_id" type = "hidden">
-    <input id = "form_direction" name="direction" type = "hidden">
-    <button class ="input__button "id = "start" type="submit">NEXT</button>
-  <% end %>
+
+
+<div id='container'>
+
+  <div class='widget'>
+    <div id='morning' class="tab-content">
+
+      <table class="group-table">
+        <thead>
+          <tr>
+            <th>Hours / week</th>
+            <th>Class schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td>Tues & Thurs</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Mon, Wed & Fri</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Mon - Fri</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+
+  <div class='widget'>
+    <div id='afternoon' class="tab-content">
+
+      <table class="group-table">
+        <thead>
+          <tr>
+            <th>Hours / week</th>
+            <th>Class schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td>Tues & Thurs</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Mon, Wed & Fri</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Mon - Fri</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+  </div>
 
 </div>
 
