@@ -1,91 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
 #records_show-page{
 // show.html.erbのみに適用
 
   html, body {
     height: 100%;
+    font-family: 'impact';
+    background-color: #f1f3f5 ;
+  }
+
+  .time,.calory,.time,.calory_1,h3,.station_start,.station_goal{
+  font-family: Lato;
+  color:#495057;
   }
 
   .wrap{
     width:100%;
     overflow: hidden;
     height: -webkit-fill-available;
+    background-color: #f1f3f5
   }
 
-
-  .wrap2 {
-    height: 100px;
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
-  .button2 {
-    width: 200px;
-    height: 75px;
-    font-family: 'impact';
-    font-size: 35px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    margin-top: 80px;
-  }
-
-  .button2:hover {
-    background-color: #EE82EE;
-    box-shadow: 0px 15px 20px rgba(100, 50, 10, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
-
-  .circle1 {
-    width: 42vw;
+  .circle1,.circle2 {
+    width: 41vw;
     height: 159px;
     border-radius: 50%;
-    margin: 30px auto -20px auto;
+    margin: 0px auto -20px auto;
     position: relative;
-    border: solid 10px lime;
-    border: 10px dashed lime;
+    border: solid 10px #0ca678;
+    border: 10px dashed #0ca678;
     float: left;
   }
 
   .circle2 {
-    width: 42vw;
-    height: 159px;
-    border-radius: 50%;
-    margin: 30px auto -20px auto;
-    position: relative;
-    border: solid 10px lime;
-    border: 10px dashed lime;
     float: right;
   }
 
-
   .time{
-    font-family: 'impact';
     text-align: center;
     line-height: 75px;
     font-size: 45px;
   }
 
   .calory{
-    font-family: 'impact';
     text-align: center;
     font-size: 40px;
     margin-top: 35px;
   }
 
   .calory_1{
-    font-family: 'impact';
     text-align: center;
     font-size: 45px;
     margin:-45px;
@@ -112,27 +75,17 @@
     padding-left: 52px;
   }
 
-
-  h3.lose{
+  h3{
     background: blue;
-    font-size: 85px;
+    font-size: 50px;
     border-radius: 10px 10px 10px 10px;
     text-align: center;
-    font-family: 'impact';
-    opacity: 0.6;
     line-height: 85px;
-    margin-top: 50px;
+    margin-top: 10px;
   }
 
-  h3.win{
-    background: red;
-    font-size: 85px;
-    border-radius: 10px 10px 10px 10px;
-    text-align: center;
-    font-family: 'impact';
-    opacity: 0.6;
-    line-height: 85px;
-    margin-top: 50px;
+  .win{
+     background: red;
   }
 
   .flex {
