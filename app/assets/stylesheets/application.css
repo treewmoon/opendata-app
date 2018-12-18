@@ -12,9 +12,32 @@
  *
  *= require_tree .
  *= require_self
-  *= require font-awesome
+ *= require font-awesome
  */
 
-body{
-  margin: 0;
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+header {
+  background-color: #f1f3f5;
+  height: 20vw;
+  width: 100%;
+  border-bottom: 0.5vw solid #495057;
+  margin-bottom: 5vw;
+}
+
+a {
+  font-family: Lato;
+  color: #495057;
+}
+
+.back, .logout, .grid-6 {
+  margin: 0 auto;
+  width: 30%;
+  float: left;
+  text-align: center;
+  line-height:20vw;
+}
+
+body {
+  height: 100vw;
 }
