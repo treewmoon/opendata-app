@@ -25,10 +25,10 @@ class Record < ApplicationRecord
     json = Jre_api.get_location
     if d == 0
       direction ="odpt.RailDirection:InnerLoop"
-      main_json = Jre_api.get_train_timetable
+      main_json = Jre_api.get_train_timetable(0)
     else
       direction ="odpt.RailDirection:OuterLoop"
-      main_json = Jre_api.get_train_timetable
+      main_json = Jre_api.get_train_timetable(1)
     end
 
     for j in json do

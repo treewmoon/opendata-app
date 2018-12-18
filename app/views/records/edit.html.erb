@@ -34,16 +34,10 @@
           var min = Number(running_time[0]);
           var sec = Number(running_time[1]);
           var running_time_sec = min*60 + sec;
-          console.log("running_time_sec");
-          console.log(running_time_sec);
 
           $("#input_running_time").attr("value", timer.textContent);
           var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;
-          console.log('cal : %d', cal);
           $("#input_calory").attr("value", cal);
-
-          console.log("arrivaltime_sec");
-          console.log(arrival_time_sec);
 
           var result;
             if (arrival_time_sec >= start_time_sec + running_time_sec) {
@@ -51,8 +45,6 @@
             } else {
               result = 1;
             }
-          console.log("result");
-          console.log(result);
           $("#result").attr("value", result);
         })
 
@@ -70,22 +62,12 @@
         var hour_a = Number(arrival_time[0]);
         var min_a = Number(arrival_time[1]);
         var arrival_time_sec = hour_a*3600 + min_a*60;//ゴール予定時刻を秒に変換
-        console.log("start_time_sec");
-        console.log(start_time_sec);
-        console.log("arrival_time_sec");
-        console.log(arrival_time_sec);
 
         var trainRunningTime = arrival_time_sec - start_time_sec;//電車が進む時間(秒)
-        console.log("trainRunningTime");
-        console.log(trainRunningTime);
         var speed_s = 80 / trainRunningTime;//電車が進む速さ(vw/s)
         var speed_ms = speed_s * 1000;//電車が進む速さ(vw/ms)
-        console.log("speed_ms");
-        console.log(speed_ms);
         var time_per_once_s = trainRunningTime/10;//1回(電車が走る時間を10等分)にかかる時間(秒)
         var time_per_once_ms = time_per_once_s * 1000;
-        console.log("time_per_once_ms");
-        console.log(time_per_once_ms);
 
 //線路の幅（width: 100vw）、電車の幅（width: 20vw）を調べる。電車の幅は20vw、高さは10vwにした。
 //線路の幅(344px)から電車の幅(100px)を引いたのが電車が走る距離。（width: 80vw）
@@ -95,13 +77,9 @@
         var movemove = function(){
           $('img').stop().animate({left:'+=' + 8 + 'vw'},speed_ms);//speed_msの速さ(前なら1000px/s)で8vw進む。
           n = n + 1;
-          console.log(n);
           if ( n >= 10 ) {//電車が走る時間を10等分。time_per_onceで10等分しているので。
             stopTrain();
-            console.log("到着");
-          }else{
-            console.log("まだ");
-          };
+          }
         }
         var trainMove;
         trainMove = setInterval(movemove,time_per_once_ms);//1回にかかる時間(前なら3000ミリ秒=3秒だった)ごとに。
@@ -129,7 +107,7 @@
         </div>
         <div>
           <h4>ゴール時刻
-            <% json = Jre_api.get_train_timetable %>
+            <% json = Jre_api.get_train_timetable(@record.direction) %>
             <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
             <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
