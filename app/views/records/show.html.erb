@@ -1,26 +1,37 @@
-<h2>Records/show画面</h2>
+<div id="records_show-page">
 
-<p> 結果 </p>
-<% if @record.result == 0%>
-  勝利
-<% else %>
-  敗北
-<% end %>
+  <div class="wrap">
+    <div>
+    <% if @record.result == 0%>
+    <h3 class="win"> YOU WIN! </h3>
+    <% else %>
+    <h3 class="lose"> YOU LOSE! </h3>
+    <% end %>
+    </div>
 
-<p> タイム </p>
-<%= @record.running_time %>
+    <div class="flex">
 
-<p> 消費カロリー </p>
-<%= @record.consumed_calory %> kcal
+      <div class="train">
 
-<p> スタート </p>
-<%= Station.find(@record.start_station_id).name_ja %> 駅
+      <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
 
-<p> ゴール </p>
-<%= Station.find(@record.goal_station_id).name_ja %> 駅
 
-<p> 対戦相手 </p>
-<%= @record.opponent %>
+      <%= image_tag '9407.png', :size =>'100x50', class: "buruburu" %>
+      <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
 
-<br><br><br>
-<a class="btn" href="/">戻る</a>
+      </div>
+    </div>
+
+    <div class="circle1">
+      <p class="time"><%= @record.running_time %></p>
+    </div>
+
+    <div class="circle2">
+      <p class="calory"><%= @record.consumed_calory %></p>
+      <p class="calory_1">kcal</p>
+    </div>
+
+  </div>
+
+</div>
+
