@@ -97,9 +97,12 @@ class Record < ApplicationRecord
         break
       end
     end
-    new_train_number = json["odpt:nextTrainTimetable"][0]
-    new_train_number = new_train_number.gsub(/odpt.TrainTimetable:JR-East.Yamanote./, "")
-    new_train_number = new_train_number.gsub(/.Weekday/, "")
+    #謎エラーの対策
+    if json["odpt:nextTrainTimetable"] != nil
+      new_train_number = json["odpt:nextTrainTimetable"][0]
+      new_train_number = new_train_number.gsub(/odpt.TrainTimetable:JR-East.Yamanote./, "")
+      new_train_number = new_train_number.gsub(/.Weekday/, "")
+    end
     return new_train_number
   end
 
