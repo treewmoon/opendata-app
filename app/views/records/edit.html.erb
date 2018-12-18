@@ -88,8 +88,6 @@
   <div class="contents row">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <div class="container">
-        <h2>RUN NOW</h2>
-        <h2><%= current_user.name %> VS 山手線</h2>
         <div class="flex">
           <div class="start"> START
             <%= Station.find(@record.start_station_id).name_ja %> 駅 </div>
@@ -101,15 +99,17 @@
           </div>
         </div>
         <div>
-          <h4>ゴール時刻
+          <h4>
+          START
+            <% nowtime = Record.get_now_time %>
+            <%= nowtime %>
+            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
+          GOAL
             <% json = Jre_api.get_train_timetable %>
             <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
             <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
-          スタート時刻
-            <% nowtime = Record.get_now_time %>
-            <%= nowtime %>
-            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div></h4>
+          </h4>
         </div>
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory">
