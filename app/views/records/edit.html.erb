@@ -11,8 +11,35 @@
           </div>
         </div>
 
+<ul class="progress">
+   <li id = "timer_in_circle" data-name="Timer" data-percent = '00:00'>
+        <svg viewBox="-10 -10 220 220">
+        <g fill="none" stroke-width="6" transform="translate(100,100)">
+        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
+        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
+        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
+        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
+        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
+        </g>
+        </svg>
+  </li>
+</ul>
 
-  <div id="timer">00:00</div>
+<!--  Defining Angle Gradient Colors  -->
+<svg width="0" height="0">
+<defs>
+<linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#0ca678"/>
+    <stop offset="100%" stop-color="#0ca678"/>
+</linearGradient>
+</defs>
+</svg>
+<!--
+        <div id="timer">00:00</div> -->
+        <div id ="timer">00:00</div>
+
+
     <script>
       $(function(){
         var timer = document.getElementById('timer');
@@ -33,12 +60,19 @@
             elapsedTime = Date.now() - startTime + timeToadd;
             updateTimetText();
             countUp();
+            $('#timer_in_circle').attr("data-percent",timer.textContent);
           },10);
         }
         window.onload = function(){
           startTime = Date.now();
           countUp();
         }
+
+        // $('#timer_in_circle').on('click', function(e){
+        //   console.log($('#timer_in_circle').attr("data-percent"));
+        //   $('#timer_in_circle').attr("data-percent",timer.textContent)
+        // })
+
 
         $('.GOAL').on('click', function(e){
           clearTimeout(timerId);
@@ -101,13 +135,12 @@
   <div class="contents row">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <div class="container">
-
         <div>
           <h4>
-          GOAL
+            <% nowtime = Record.get_now_time %>
+            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
             <% json = Jre_api.get_train_timetable %>
             <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
-            <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           </h4>
         </div>

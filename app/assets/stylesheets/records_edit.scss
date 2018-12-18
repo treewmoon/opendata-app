@@ -1,9 +1,74 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
-
 #record-edit {
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+@keyframes load{0%{stroke-dashoffset:0}}
+
+
+
   font-family: Lato;
   color: #495057;
   background-color: #f1f3f5;
+
+
+
+.progress {
+  position: relative;
+  height: 50vw;
+  line-height: 50vw;
+  color: #0ca678;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+    &>li {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      // color: #93A2AC;
+      font-family: Lato;
+      font-weight:100;
+      margin: 2rem;
+        &:before {
+          content: attr(data-name);
+          position: absolute;
+          width: 100%;
+          bottom: -2rem;
+          font-weight:400;
+        }
+        &:after {
+          content: attr(data-percent);
+          position: absolute;
+          width: 100%;
+          top: 3.7rem;
+          left: 0;
+          font-size: 2rem;
+          text-align: center;
+        }
+    }
+    svg {
+        width: 70vw;
+        height: 70vw;
+        &:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: rotate(-90deg);
+        }
+        &:nth-child(2) path {
+            fill: none;
+            stroke-width: 25;
+            stroke-dasharray: 629;
+            stroke: #f1f3f5;
+            opacity:.9;
+            animation: load 10s;
+        }
+    }
+}
+
+
+
+
+
+
 
   .runnow {
     color:#495057;
@@ -74,10 +139,12 @@
   }
 
   #timer {
-    height: 50vw;
+    height: 20vw;
     font-size: 20vw;
-    line-height: 50vw;
+    line-height: 20vw;
     font-family: monospace;
+    margin: 0 auto;
+    display:none;
   }
 
   .container {
