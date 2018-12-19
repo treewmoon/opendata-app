@@ -13,7 +13,7 @@
 .progress {
   position: relative;
   height: 50vw;
-  line-height: 50vw;
+  line-height: 20vw;
   color: #0ca678;
   margin: 0 auto;
   padding: 0;
@@ -23,25 +23,26 @@
       display: inline-block;
       position: relative;
       text-align: center;
-      // color: #93A2AC;
       font-family: Lato;
-      font-weight:100;
-      margin: 2rem;
+      margin: 2vw;
         &:before {
           content: attr(data-name);
           position: absolute;
           width: 100%;
-          bottom: -2rem;
+          top: 5vw;
           font-weight:400;
+          font-size: 5vw;
+          color: #495057;
         }
         &:after {
           content: attr(data-percent);
           position: absolute;
           width: 100%;
-          top: 3.7rem;
+          top: 25vw;
           left: 0;
-          font-size: 2rem;
+          font-size: 20vw;
           text-align: center;
+          color: #495057;
         }
     }
     svg {
@@ -90,7 +91,7 @@ ul {
   .time{
     color:#495057;
     text-align:center;
-    font-size:5vw;
+    font-size: 5vw;
   }
 
 
@@ -135,12 +136,13 @@ ul {
   }
 
   .GOAL {
-    height: 45px;
     width: 140px;
+    height: 45px;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
+    color: white;
     background-color: #0ca678;
     border: none;
     border-radius: 45px;
@@ -149,7 +151,7 @@ ul {
     cursor: pointer;
     outline: none;
     color: #f1f3f5;
-    margin: 10vw auto;
+    margin: 5vw auto;
   }
 
   h1,h2,h3{
@@ -222,7 +224,4 @@ ul {
     100% {transform: translate(0px, 0px) rotateZ(0deg)}
   }
 
-#timer_in_circle {
-  height: 70vw;
-}
 }
