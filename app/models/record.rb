@@ -57,9 +57,7 @@ class Record < ApplicationRecord
       opponent["time_for_sort"] = opponent["start_time"].gsub(/:/, "").to_i
       opponents << opponent
     end
-
-    # opponents.sort_by! { |a| a[:time_for_sort] }
-    # new_opponents = opponents.sort!{ |a, b| a[:time_for_sort] <=> b[:time_for_sort] }
+    opponents.sort_by! { |a| a["time_for_sort"] }
 
     return opponents
   end
