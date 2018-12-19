@@ -1,14 +1,27 @@
 <div id="record-edit">
   <div class="flex">
-          <div class="start">
-            <%= Station.find(@record.start_station_id).name_ja %></div>
-          <div class="direction">⇒</div>
-          <div class="goal">
-          <%= Station.find(@record.goal_station_id).name_ja %></div>
-          <div class="train">
-            <%= image_tag '1218.png', :size =>'100x50', class: "vibration" %>
+    <ul>
+      <li>
+        <div class = "opponents">
+          <div class = "number"><i class="fa fa-subway"></i></div>
+          <div class = "time">
+          <%= Station.find(@record.start_station_id).name_ja%>駅
+          <% json = Jre_api.get_train_timetable %>
+          <%= Record.get_arrivalTime(@record.opponent,@record.start_station_id,json)%>
+               ⇒
+          <%= Station.find(@record.goal_station_id).name_ja%>駅
+          <% json = Jre_api.get_train_timetable %>
+          <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
+          <%= arrivalTime %>
+            <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           </div>
         </div>
+      </li>
+    </ul>
+        <div class="train">
+          <%= image_tag '1218.png', :size =>'100x50', class: "vibration" %>
+        </div>
+  </div>
 
 <ul class="progress">
    <li id = "timer_in_circle" data-name="Timer" data-percent = '00:00'>
@@ -63,12 +76,6 @@
           startTime = Date.now();
           countUp();
         }
-
-        // $('#timer_in_circle').on('click', function(e){
-        //   console.log($('#timer_in_circle').attr("data-percent"));
-        //   $('#timer_in_circle').attr("data-percent",timer.textContent)
-        // })
-
 
         $('.GOAL').on('click', function(e){
           clearTimeout(timerId);
@@ -135,14 +142,8 @@
       <div class="container">
         <div>
           <h4>
-          START
             <% nowtime = Record.get_now_time %>
-            <%= nowtime %>
             <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
-          GOAL
-            <% json = Jre_api.get_train_timetable %>
-            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
-             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           </h4>
         </div>
         <input id = "input_running_time" type="hidden" name="running_time">
