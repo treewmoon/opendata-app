@@ -1,12 +1,22 @@
 <script>
   $(function(){
-      $('.goal_stations').on('click', function(e){
+      $('.station').on('click', function(e){
         e.preventDefault();
+        var ele = document.getElementsByClassName("station");
+        for(var i = 0; i < ele.length; i++){
+           $(ele[i]).removeClass("selected");
+        }
+
+        if($(this).parent().parent().hasClass('inner-group')){
+          $("#form_direction").attr("value", 0);
+        }else{
+          $("#form_direction").attr("value", 1);
+        }
+        console.log($("#form_direction").attr("value"));
+        $(this).addClass("selected");
         $("#form_goal_station").attr("value", this.id);
-        $("#form_direction").attr("value", 0);
       })
     })
-
 
 $(document).ready(function(){
   var newWidget="<div class='widget-wrapper'> <ul class='tab-wrapper'></ul> <div class='new-widget'></div></div>";
@@ -24,8 +34,6 @@ $(document).ready(function(){
   });
   $(".tab:first").click();
 });
-
-
 </script>
 
 
@@ -34,20 +42,49 @@ $(document).ready(function(){
     <h2>Where to Goal ?</h2>
   </div>
 
-  <div class="main-content">
-    <div id = "select__goal__inner" >
-    <strong>内回り(近い４駅)</strong><br>
-    <% Record.get_stations_inner(@record.start_station_id,4).each do |station| %>
-      ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
-    <% end %>
-   </div>
-
-   <div id = "select__goal__outer" >
-    <strong>外回り(近い４駅)※選ばないで！</strong><br>
-    <% Record.get_stations_outer(@record.start_station_id,4).each do |station| %>
-      ・<a href="" id = <%=station%> class = "goal_stations"><%= Station.find(station).name_ja %>駅 </a><br>
-    <% end %>
-   </div>
+  <div id='container' class="main-content">
+    <div class='widget'>
+      <div id='inner' class="tab-content">
+        <table class="group-table inner-group">
+          <thead>
+            <tr>
+              <th>Station</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Record.get_stations_inner(@record.start_station_id,5).each do |station| %>
+              <tr id = <%=station%> class="station">
+                <td><i class="fa fa-university"></i>　<%= Station.find(station).name_ja %></td>
+                <% dis = Distance.get_distance(@record.start_station_id,station,0)%>
+                <td><%= dis %>m　(<i class="fa fa-user"></i><%= dis / 70 %>分)</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class='widget'>
+      <div id='outer' class="tab-content">
+        <table id class="group-table outer-group">
+          <thead>
+            <tr>
+              <th>Station</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Record.get_stations_outer(@record.start_station_id,5).each do |station| %>
+              <tr id = <%=station%> class="station">
+                <td><i class="fa fa-university"></i>　<%= Station.find(station).name_ja %></td>
+                <% dis = Distance.get_distance(@record.start_station_id,station,1)%>
+                <td><%= dis %>m　(<i class="fa fa-user"></i><%= dis / 70 %>分)</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div class = "button">
@@ -57,77 +94,5 @@ $(document).ready(function(){
       <button class ="input__button "id = "start" type="submit">NEXT</button>
     <% end %>
   </div>
-
-
-</div>
-
-
-
-
-<div id='container'>
-
-  <div class='widget'>
-    <div id='morning' class="tab-content">
-
-      <table class="group-table">
-        <thead>
-          <tr>
-            <th>Hours / week</th>
-            <th>Class schedule</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4</td>
-            <td>Tues & Thurs</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Mon, Wed & Fri</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>Mon - Fri</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-
-
-
-  <div class='widget'>
-    <div id='afternoon' class="tab-content">
-
-      <table class="group-table">
-        <thead>
-          <tr>
-            <th>Hours / week</th>
-            <th>Class schedule</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4</td>
-            <td>Tues & Thurs</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Mon, Wed & Fri</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>Mon - Fri</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-
-
-  </div>
-
 </div>
 
