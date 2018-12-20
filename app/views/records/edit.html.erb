@@ -55,7 +55,6 @@
         var startTime;
         var elapsedTime = 0;
         var timerId;
-        var timeToadd = 0;
 
         function updateTimetText(){
           var m = Math.floor(elapsedTime / 60000);
@@ -66,7 +65,7 @@
         }
         function countUp(){
           timerId = setTimeout(function(){
-            elapsedTime = Date.now() - startTime + timeToadd;
+            elapsedTime = Date.now() - startTime;
             updateTimetText();
             countUp();
             $('#timer_in_circle').attr("data-percent",timer.textContent);
