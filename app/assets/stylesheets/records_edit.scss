@@ -1,0 +1,228 @@
+#record-edit {
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+@keyframes load{0%{stroke-dashoffset:0}}
+
+
+  width: 100%;
+  height: 100%;
+  font-family: Lato;
+  color: #495057;
+  background-color: #f1f3f5;
+
+
+
+.progress {
+  position: relative;
+  height: 50vw;
+  line-height: 20vw;
+  color: #0ca678;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+    &>li {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      font-family: Lato;
+      margin: 2vw;
+        &:before {
+          content: attr(data-name);
+          position: absolute;
+          width: 100%;
+          top: 5vw;
+          font-weight:400;
+          font-size: 5vw;
+          color: #495057;
+        }
+        &:after {
+          content: attr(data-percent);
+          position: absolute;
+          width: 100%;
+          top: 25vw;
+          left: 0;
+          font-size: 20vw;
+          text-align: center;
+          color: #495057;
+        }
+    }
+    svg {
+        width: 70vw;
+        height: 70vw;
+        &:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: rotate(-90deg);
+        }
+        &:nth-child(2) path {
+            fill: none;
+            stroke-width: 25;
+            stroke-dasharray: 629;
+            stroke: #f1f3f5;
+            opacity:.9;
+            animation: load 10s;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin:0 auto;
+    padding:0;
+    width: 90vw;
+  }
+
+  .opponents{
+    border-style: solid;
+    border-color: #f1f3f5;
+    border-width: 2vw;
+    background-color: white;
+    height: 18vw;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .number{
+    color:#0ca678;
+    text-align:center;
+    font-size:6vw;
+  }
+
+  .time{
+    color:#495057;
+    text-align:center;
+    font-size: 5vw;
+  }
+
+
+
+
+
+
+  .runnow {
+    color:#495057;
+    margin-bottom: 2vw;
+    font-size: 5vw;
+  }
+
+  .flex {
+    display: flex;
+    flex-flow: row wrap;
+    height: 35vw;
+  }
+
+  .start {
+    height: 4vw;
+    font-size: 4vw;
+  }
+
+  .goal {
+    height: 4vw;
+    font-size: 4vw;
+  }
+
+  div{
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .wrap1 {
+    height:16vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .GOAL {
+    width: 140px;
+    height: 45px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: white;
+    background-color: #0ca678;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    color: #f1f3f5;
+    margin: 5vw auto;
+  }
+
+  h1,h2,h3{
+    text-align: center;
+    margin: 4vw;
+    font-size: 8vw;
+  }
+
+  h2 {
+    margin-top: 6vw;
+  }
+
+  h4 {
+    font-size: 4vw;
+    margin: 5vw auto;
+  }
+
+  #timer {
+    height: 20vw;
+    font-size: 20vw;
+    line-height: 20vw;
+    font-family: monospace;
+    margin: 0 auto;
+    display:none;
+  }
+
+  .container {
+    height: 10vw;
+    width: 100vw;
+    margin: 25vw auto 0;
+  }
+
+  img {
+    vertical-align: text-bottom;
+    -ms-interpolation-mode: bicubic;
+    height: 10vw;
+    width: 20vw;
+  }
+
+  .train {
+    width: 100vw;
+    height: 5vw;
+    text-align: center;
+    border-bottom: dashed 2vw #495057;
+    box-shadow: 0px 1px #495057,0px -1px #495057 inset;
+    display: flex;
+    align-items: flex-end;
+    line-height:2vw;
+  }
+
+  body {
+    font-size: 100vw;
+    line-height: 140vw;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #000;
+    text-align: center;
+    background-color:  #f1f3f5;
+  }
+
+  .vibration {
+    display: inline-block;
+    animation: shaking .5s  infinite;
+  }
+
+  @keyframes shaking {
+    0% {transform: translate(0px, 0px) rotateZ(0deg)}
+    25% {transform: translate(2px, 2px) rotateZ(1deg)}
+    50% {transform: translate(0px, 2px) rotateZ(0deg)}
+    75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+    100% {transform: translate(0px, 0px) rotateZ(0deg)}
+  }
+
+}
