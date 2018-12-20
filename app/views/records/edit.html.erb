@@ -46,7 +46,7 @@
       $("#result").attr("value", result);
     })
 
-
+    //勝敗
     var start_time =  $("#nowtime").data("nowtime").split(':');
     var start_time_sec = Number(start_time[0])*3600 + Number(start_time[1])*60;
     var arrival_time =  $("#arrivalTime").data("arrivaltime").split(':');
@@ -54,7 +54,6 @@
     var trainRunningTime = arrival_time_sec - start_time_sec;
     var speed_ms = (80 / trainRunningTime) * 1000 ;
     var time_per_once_ms = (trainRunningTime/10) * 1000;
-
     var n = 0;
     var img = $('img').css({left:'0',position:'absolute'});
     var movemove = function(){
