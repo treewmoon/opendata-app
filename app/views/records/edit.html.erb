@@ -1,3 +1,78 @@
+<script>
+  $(function(){
+    //running_time関係
+    var timer = document.getElementById('timer');
+    var startTime;
+    var elapsedTime = 0;
+    var timerId;
+    function updateTimetText(){
+      var m = Math.floor(elapsedTime / 60000);
+      var s = Math.floor(elapsedTime % 60000 / 1000);
+      m = ('0' + m).slice(-2);
+      s = ('0' + s).slice(-2);
+      timer.textContent = m + ':' + s;
+    }
+    function countUp(){
+      timerId = setTimeout(function(){
+        elapsedTime = Date.now() - startTime;
+        updateTimetText();
+        countUp();
+        $('#timer_in_circle').attr("data-percent",timer.textContent);
+      },10);
+    }
+    window.onload = function(){
+      startTime = Date.now();
+      countUp();
+    }
+
+
+    //GOALボタンを押した時
+    $('.GOAL').on('click', function(e){
+      clearTimeout(timerId);
+      var running_time = timer.textContent.split(':');
+      var min = Number(running_time[0]);
+      var sec = Number(running_time[1]);
+      var running_time_sec = min*60 + sec;
+
+      $("#input_running_time").attr("value", timer.textContent);
+      var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;
+      $("#input_calory").attr("value", cal);
+      var result;
+      if (arrival_time_sec >= start_time_sec + running_time_sec) {
+        result = 0;
+      } else {
+        result = 1;
+      }
+      $("#result").attr("value", result);
+    })
+
+
+    var start_time =  $("#nowtime").data("nowtime").split(':');
+    var start_time_sec = Number(start_time[0])*3600 + Number(start_time[1])*60;
+    var arrival_time =  $("#arrivalTime").data("arrivaltime").split(':');
+    var arrival_time_sec = Number(arrival_time[0])*3600 + Number(arrival_time[1])*60;
+    var trainRunningTime = arrival_time_sec - start_time_sec;
+    var speed_ms = (80 / trainRunningTime) * 1000 ;
+    var time_per_once_ms = (trainRunningTime/10) * 1000;
+
+    var n = 0;
+    var img = $('img').css({left:'0',position:'absolute'});
+    var movemove = function(){
+      $('img').stop().animate({left:'+=' + 8 + 'vw'},speed_ms);
+      n = n + 1;
+      if ( n >= 10 ) {
+        stopTrain();
+      }
+    }
+    var trainMove = setInterval(movemove,time_per_once_ms);
+    function stopTrain(){
+      clearInterval(trainMove);
+    }
+  });
+</script>
+
+
+
 <div id="record-edit">
   <div class="flex">
     <ul>
@@ -5,151 +80,56 @@
         <div class = "opponents">
           <div class = "number"><i class="fa fa-subway"></i></div>
           <div class = "time">
-          <%= Station.find(@record.start_station_id).name_ja%>駅
-          <% json = Jre_api.get_train_timetable %>
-          <%= Record.get_arrivalTime(@record.opponent,@record.start_station_id,json)%>
+            <% json = Jre_api.get_train_timetable(@record.direction) %>
+            <%= Station.find(@record.start_station_id).name_ja%>駅
+            <%= Record.get_arrivalTime(@record.opponent,@record.start_station_id,json)%>
                ⇒
-          <%= Station.find(@record.goal_station_id).name_ja%>駅
-          <% json = Jre_api.get_train_timetable %>
-          <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
-          <%= arrivalTime %>
+            <%= Station.find(@record.goal_station_id).name_ja%>駅
+            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
+            <%= arrivalTime %>
             <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           </div>
         </div>
       </li>
     </ul>
-        <div class="train">
-          <%= image_tag '1218.png', :size =>'100x50', class: "vibration" %>
-        </div>
+    <div class="train"><%= image_tag '1218.png', :size =>'100x50', class: "vibration" %></div>
   </div>
 
-<ul class="progress">
-   <li id = "timer_in_circle" data-name="Timer" data-percent = '00:00'>
-        <svg viewBox="-10 -10 220 220">
-        <g fill="none" stroke-width="6" transform="translate(100,100)">
-        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
-        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
-        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
-        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
-        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-        </g>
-        </svg>
-  </li>
-</ul>
 
-<!--  Defining Angle Gradient Colors  -->
-<svg width="0" height="0">
-  <defs>
-    <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#0ca678"/>
-      <stop offset="100%" stop-color="#0ca678"/>
-    </linearGradient>
-  </defs>
-</svg>
+  <div id ="timer">00:00</div>
+  <ul class="progress">
+    <li id = "timer_in_circle" data-name="Timer" data-percent = '00:00'>
+      <svg viewBox="-10 -10 220 220">
+      <g fill="none" stroke-width="6" transform="translate(100,100)">
+      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
+      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
+      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
+      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
+      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
+      </g>
+      </svg>
+    </li>
+  </ul>
+  <svg width="0" height="0">
+    <defs>
+      <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#0ca678"/>
+        <stop offset="100%" stop-color="#0ca678"/>
+      </linearGradient>
+    </defs>
+  </svg>
 
-<div id ="timer">00:00</div>
-    <script>
-      $(function(){
-        var timer = document.getElementById('timer');
-        var startTime;
-        var elapsedTime = 0;
-        var timerId;
-
-        function updateTimetText(){
-          var m = Math.floor(elapsedTime / 60000);
-          var s = Math.floor(elapsedTime % 60000 / 1000);
-          m = ('0' + m).slice(-2);
-          s = ('0' + s).slice(-2);
-          timer.textContent = m + ':' + s;
-        }
-        function countUp(){
-          timerId = setTimeout(function(){
-            elapsedTime = Date.now() - startTime;
-            updateTimetText();
-            countUp();
-            $('#timer_in_circle').attr("data-percent",timer.textContent);
-          },10);
-        }
-        window.onload = function(){
-          startTime = Date.now();
-          countUp();
-        }
-
-        $('.GOAL').on('click', function(e){
-          clearTimeout(timerId);
-
-          var running_time = timer.textContent.split(':');
-          var min = Number(running_time[0]);
-          var sec = Number(running_time[1]);
-          var running_time_sec = min*60 + sec;
-
-          $("#input_running_time").attr("value", timer.textContent);
-          var cal = 1.05 * 6.0 / 60 * parseFloat(timer.textContent) * <%= current_user.weight %>;
-          $("#input_calory").attr("value", cal);
-
-          var result;
-            if (arrival_time_sec >= start_time_sec + running_time_sec) {
-              result = 0;
-            } else {
-              result = 1;
-            }
-          $("#result").attr("value", result);
-        })
-
-        var starttime =  $("#nowtime").data("nowtime");
-        var start_time = starttime.split(':');
-        var hour_s = Number(start_time[0]);
-        var min_s = Number(start_time[1]);
-        var start_time_sec = hour_s*3600 + min_s*60;
-
-        var arrivalTime =  $("#arrivalTime").data("arrivaltime");
-        var arrival_time = arrivalTime.split(':');
-        var hour_a = Number(arrival_time[0]);
-        var min_a = Number(arrival_time[1]);
-        var arrival_time_sec = hour_a*3600 + min_a*60;
-
-
-        var trainRunningTime = arrival_time_sec - start_time_sec;
-        var speed_s = 80 / trainRunningTime;
-        var speed_ms = speed_s * 1000;
-        var time_per_once_s = trainRunningTime/10;
-        var time_per_once_ms = time_per_once_s * 1000;
-
-        var n = 0;
-        var img = $('img').css({left:'0',position:'absolute'});
-        var movemove = function(){
-          $('img').stop().animate({left:'+=' + 8 + 'vw'},speed_ms);
-          n = n + 1;
-          if ( n >= 10 ) {
-            stopTrain();
-          }else{
-          };
-        }
-        var trainMove;
-        trainMove = setInterval(movemove,time_per_once_ms);
-
-        function stopTrain(){
-          clearInterval(trainMove);
-        }
-      });
-    </script>
 
   <div class="contents row">
     <%= form_tag("/records/#{@record.id}", method: :patch) do %>
       <div class="container">
-        <div>
-          <h4>
-            <% nowtime = Record.get_now_time %>
-            <div style="display: hidden" id="nowtime" data-nowtime=<%= nowtime %>></div>
-          </h4>
-        </div>
+        <div style="display: hidden" id="nowtime" data-nowtime=<%= Record.get_now_time %>></div>
         <input id = "input_running_time" type="hidden" name="running_time">
         <input id = "input_calory" type="hidden" name="consumed_calory">
         <input id = "result" name="result" type="hidden">
-        <div class="wrap1">
-          <button class="GOAL" type="submit">GOAL</button>
-        </div>
-      <% end %>
+        <div class="wrap1"><button class="GOAL" type="submit">GOAL</button></div>
       </div>
+    <% end %>
   </div>
+</div>

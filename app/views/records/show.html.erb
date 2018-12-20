@@ -53,7 +53,9 @@
     </ul>
 
     <ul class="progress2">
-        <li data-name="Distance" data-percent=<%= 7000  %>m>
+        <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
+
+        <li data-name="Distance" data-percent=<%= dis %>m>
             <svg viewBox="-10 -10 220 220">
             <g fill="none" stroke-width="6" transform="translate(100,100)">
             <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
@@ -70,7 +72,7 @@
     </ul>
 
     <ul class="progress3">
-        <li data-name="Save the fare" data-percent=<%if 7000 <= 3000 %>
+        <li data-name="Save the fare" data-percent=<%if dis <= 3000 %>
             140円
           <% elsif 3000 < 7000 && 7000<= 6000 %>
             160円
