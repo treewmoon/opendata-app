@@ -1,38 +1,35 @@
 <div id="records_show-page">
 
   <div class="wrap">
-
-    <div>
     <% if @record.result == 0%>
-    <h3 class="win"> YOU WIN!  </h3>
+      <h3 class="win"> YOU WIN!  </h3>
     <% else %>
-    <h3 class="lose"> YOU LOSE! </h3>
+      <h3 class="lose"> YOU LOSE! </h3>
     <% end %>
-    </div>
 
     <div class="flex">
       <div class="train">
-      <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
-      <%= image_tag '1218.png', :size =>'62x31', class: "buruburu" %>
-      <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
+        <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
+        <%= image_tag '1218.png', :size =>'62x31', class: "buruburu" %>
+        <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
       </div>
     </div>
 
+
     <ul class="progress">
-        <li data-name="Running Time" data-percent=<%= @record.running_time%>>
-            <svg viewBox="-10 -10 220 220">
-            <g fill="none" stroke-width="6" transform="translate(100,100)">
+      <li data-name="Running Time" data-percent=<%= @record.running_time%>>
+        <svg viewBox="-10 -10 220 220">
+          <g fill="none" stroke-width="6" transform="translate(100,100)">
             <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
             <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
             <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
             <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
             <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
             <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-            </g>
-            </svg>
-            <svg viewBox="-10 -10 220 220">
-            </svg>
-        </li>
+          </g>
+        </svg>
+        <svg viewBox="-10 -10 220 220"></svg>
+      </li>
     </ul>
 
     <ul class="progress1">
@@ -53,8 +50,7 @@
     </ul>
 
     <ul class="progress2">
-        <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
-
+      <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
         <li data-name="Distance" data-percent=<%= dis %>m>
             <svg viewBox="-10 -10 220 220">
             <g fill="none" stroke-width="6" transform="translate(100,100)">
@@ -94,21 +90,18 @@
         </li>
     </ul>
 
-<!--  Defining Angle Gradient Colors  -->
     <svg width="0" height="0">
-    <defs>
-    <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-        <stop stop-color="#0ca678"/>
-        <stop offset="100%" stop-color="#0ca678"/>
-    </linearGradient>
-    </defs>
+      <defs>
+        <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#0ca678"/>
+          <stop offset="100%" stop-color="#0ca678"/>
+        </linearGradient>
+      </defs>
     </svg>
 
     <div class="wrap2">
-    <button class="button2" onclick="location.href='/users/<%= current_user.id %>'">DATA</button>
+      <button class="button2" onclick="location.href='/users/<%= current_user.id %>'">DATA</button>
     </div>
-
   </div>
-
 </div>
 
