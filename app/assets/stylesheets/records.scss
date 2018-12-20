@@ -1,10 +1,48 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
-@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
 #record-new {
   font-family: Lato;
   color:#495057;
+
+
+  .title{
+    font-size: 7vw;
+  }
+  .pre{
+    text-align: center;
+    margin:0 auto 10vw;
+  }
+
+  .station-card{
+    background-color: white;
+    height:50vw;
+    width: 90vw;
+    margin:10vw auto 10vw;
+  }
+  .s-name{
+    height: 60%;
+    text-align: center;
+    font-size: 22vw;
+  }
+  .s-name-en{
+    height: 15%;
+    text-align: center;
+    color:#adb5bd;
+    font-size: 6vw;
+  }
+
+  .sub-s{
+    height: 20%;
+    text-align: center;
+    color:white;
+    background-color:#0ca678;
+    font-size: 6vw;
+  }
+  .sub-s2{
+    height: 5%;
+
+  }
 
   .circle_img{
     height: 10vw;
@@ -19,8 +57,17 @@
   .title{
     margin:0 0 0 0;
     text-align: center;
-    padding: 20vw 0 0 0;
+    // padding: 20vw 0 0 0;
   }
+
+
+
+
+
+  .main-content{
+    background-color: white;
+  }
+
   .station-list {
     overflow-x: auto;
     white-space: nowrap;
@@ -33,6 +80,7 @@
     width: 24%;
     height:74%;
   }
+
   .start_stations{
     height:100%;
     // text-align: end;
@@ -40,7 +88,6 @@
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
   }
-
   .mark{
     height:1vw;
     color:white;
@@ -66,11 +113,11 @@
 
 
   .in_4{
-    color:#e9ecef;
+    color:#495057;
     font-size: 1vw;
   }
   .in_3{
-    color:#ced4da;
+    color:#495057;
     font-size: 3vw;
   }
   .in_2{
@@ -117,7 +164,15 @@
 
 
 
-//謎
+
+#record-new-next{
+
+
+
+
+
+
+  //謎
 #container{
   margin: 0 auto;
   width: 80%;
@@ -133,11 +188,11 @@
     list-style-position: inside;
   }
   .new-widget{
-    margin: 0px;
+    margin: 0;
     border: 1px solid #ddd;
     border-top: 0;
     background-color: #fff;
-    width: 80%;
+    width: 100%;
     clear: both;
   }
   .new-widget ul{
@@ -170,13 +225,13 @@
   }
   /* TABLE STYLING */
   .group-table {
-    border-top: 1px solid #ddd;
-    width:80%;
+    // border-top: 1px solid #ddd;
+    width:100%;
       border-collapse:collapse;
       padding:5px;
-      text-align: center;
     }
   .group-table th {
+    text-align: center;
     padding: 10px 5px;
     font-weight: normal;
     background:#0ca678;
@@ -187,25 +242,25 @@
   }
   .group-table th, .group-table td {
     border-right: 1px solid #ddd;
-  }
-  .group-table tr:nth-child(odd) {
-    background: #f0f0f0;
+    border-top: 1px solid #ddd;
   }
 }
-
-
-
-
-#record-new-next{
 
   .title{
     margin:0 0 0 0;
     text-align: center;
-    padding: 20vw 0 0 0;
+    // padding: 20vw 0 0 0;
+  }
+  .selected{
+    background-color:#0ca678;
+    td{
+      color:white;
+    }
   }
 
 
   .button {
+    padding:5vw 0;
     height:80px;
     width: 200px;
     display: flex;
@@ -216,25 +271,18 @@
   .input__button {
     width: 140px;
     height: 45px;
-    font-family: 'impact';
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    color: white;
+    background-color: #0ca678;
     border: none;
     border-radius: 45px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-  }
-  .input__button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
   }
 
 }
@@ -293,7 +341,7 @@
   .title{
     margin:0 0 0 0;
     text-align: center;
-    padding: 15vw 0 0 0;
+    // padding: 15vw 0 0 0;
   }
 
 

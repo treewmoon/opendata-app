@@ -1,4 +1,5 @@
 require 'net/http'
+require 'date'
 
 class Jre_api < ApplicationController
   CONSUMERKEY = "&acl:consumerKey=11c7de08168db1313ebdb42b41ffea8f50a6e7c8688f5585f1c975e08037e44e"
@@ -19,11 +20,21 @@ class Jre_api < ApplicationController
   end
 
   #引数で渡した電車（山手線のみ）の列車時刻表をJSONで返す(平日ダイヤのみ)
-  def self.get_train_timetable
+  def self.get_train_timetable(direction)
     body = "odpt:TrainTimetable?"
     train_type = "odpt:railway=odpt.Railway:JR-East.Yamanote"
-    day_type ="&odpt:calendar=odpt.Calendar:Weekday"
-    direction_type = "&odpt:railDirection=odpt.RailDirection:InnerLoop"
+
+    if Date.today.wday == 0 || Date.today.wday == 7
+      day_type ="&odpt:calendar=odpt.Calendar:SaturdayHoliday"
+    else
+      day_type ="&odpt:calendar=odpt.Calendar:Weekday"
+    end
+
+    if direction == 0
+      direction_type = "&odpt:railDirection=odpt.RailDirection:InnerLoop"
+    else
+      direction_type = "&odpt:railDirection=odpt.RailDirection:OuterLoop"
+    end
 
     url = URI.parse(URL_HEAD + body + train_type + day_type + direction_type + CONSUMERKEY)
 

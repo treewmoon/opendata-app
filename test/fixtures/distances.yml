@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s_id: 1
+  g_id: 1
+  meter: 1
+
+two:
+  s_id: 1
+  g_id: 1
+  meter: 1

@@ -25,10 +25,10 @@ class Record < ApplicationRecord
     json = Jre_api.get_location
     if d == 0
       direction ="odpt.RailDirection:InnerLoop"
-      main_json = Jre_api.get_train_timetable
+      main_json = Jre_api.get_train_timetable(0)
     else
       direction ="odpt.RailDirection:OuterLoop"
-      main_json = Jre_api.get_train_timetable
+      main_json = Jre_api.get_train_timetable(1)
     end
 
     for j in json do
@@ -54,11 +54,15 @@ class Record < ApplicationRecord
       end
       opponent["start_time"] = Record.get_arrivalTime(opponent["number"],s_i,main_json)
       opponent["goal_time"] = Record.get_arrivalTime(opponent["number"],g_i,main_json)
+      opponent["time_for_sort"] = opponent["start_time"].gsub(/:/, "").to_i
       opponents << opponent
     end
+    opponents.sort_by! { |a| a["time_for_sort"] }
 
     return opponents
   end
+
+
 
 
   #ある電車がある駅に到着する時間を返す
@@ -97,9 +101,12 @@ class Record < ApplicationRecord
         break
       end
     end
-    new_train_number = json["odpt:nextTrainTimetable"][0]
-    new_train_number = new_train_number.gsub(/odpt.TrainTimetable:JR-East.Yamanote./, "")
-    new_train_number = new_train_number.gsub(/.Weekday/, "")
+    #謎エラーの対策
+    if json["odpt:nextTrainTimetable"] != nil
+      new_train_number = json["odpt:nextTrainTimetable"][0]
+      new_train_number = new_train_number.gsub(/odpt.TrainTimetable:JR-East.Yamanote./, "")
+      new_train_number = new_train_number.gsub(/.Weekday/, "")
+    end
     return new_train_number
   end
 
