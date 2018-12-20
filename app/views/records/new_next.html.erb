@@ -12,28 +12,27 @@
         }else{
           $("#form_direction").attr("value", 1);
         }
-        console.log($("#form_direction").attr("value"));
         $(this).addClass("selected");
         $("#form_goal_station").attr("value", this.id);
       })
     })
 
-$(document).ready(function(){
-  var newWidget="<div class='widget-wrapper'> <ul class='tab-wrapper'></ul> <div class='new-widget'></div></div>";
-  $(".widget").hide();
-  $(".widget:first").before(newWidget);
-  $(".widget > div").each(function(){
-    $(".tab-wrapper").append("<li class='tab'>"+this.id+"</li>");
-    $(this).appendTo(".new-widget");
+  $(document).ready(function(){
+    var newWidget="<div class='widget-wrapper'> <ul class='tab-wrapper'></ul> <div class='new-widget'></div></div>";
+    $(".widget").hide();
+    $(".widget:first").before(newWidget);
+    $(".widget > div").each(function(){
+      $(".tab-wrapper").append("<li class='tab'>"+this.id+"</li>");
+      $(this).appendTo(".new-widget");
+    });
+    $(".tab").click(function(){
+      $(".new-widget > div").hide();
+      $('#'+$(this).text()).show();
+      $(".tab").removeClass("active-tab");
+      $(this).addClass("active-tab");
+    });
+    $(".tab:first").click();
   });
-  $(".tab").click(function(){
-    $(".new-widget > div").hide();
-    $('#'+$(this).text()).show();
-    $(".tab").removeClass("active-tab");
-    $(this).addClass("active-tab");
-  });
-  $(".tab:first").click();
-});
 </script>
 
 
@@ -46,12 +45,12 @@ $(document).ready(function(){
     <div class='widget'>
       <div id='inner' class="tab-content">
         <table class="group-table inner-group">
-          <thead>
+<!--           <thead>
             <tr>
               <th>Station</th>
               <th>Distance</th>
             </tr>
-          </thead>
+          </thead> -->
           <tbody>
             <% Record.get_stations_inner(@record.start_station_id,5).each do |station| %>
               <tr id = <%=station%> class="station">
@@ -67,12 +66,12 @@ $(document).ready(function(){
     <div class='widget'>
       <div id='outer' class="tab-content">
         <table id class="group-table outer-group">
-          <thead>
+<!--           <thead>
             <tr>
               <th>Station</th>
               <th>Distance</th>
             </tr>
-          </thead>
+          </thead> -->
           <tbody>
             <% Record.get_stations_outer(@record.start_station_id,5).each do |station| %>
               <tr id = <%=station%> class="station">

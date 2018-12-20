@@ -1,33 +1,14 @@
 <script>
   $(function(){
-
-    // $('.start_stations').on('click', function(e){
-    //   $(".start_stations").removeClass("selected");
-    //   $(this).addClass("selected");
-    //   $(this).fadeOut(50);
-    //   $(this).fadeIn(50);
-    //   e.preventDefault();
-    //   console.log(this.id)
-    //   $("#form_start_station").attr("value", this.id);
-    // })
-
-    //TSETボタンをしたときの動作
-    // $('#test').on('click', function(e){
-    //   var p1 = $('#mark1').offset().left;
-    //   console.log("p1 : " + p1);
-    //   var p2 = $('#mark2').offset().left;
-    //   console.log("p2 : " + p2);
-    //   var p3 = $('#mark3').offset().left;
-    //   console.log("p3 : " + p3);
-    //   var p4 = $('#mark4').offset().left;
-    //   console.log("p4 : " + p4);
-    //   var p5 = $('#mark5').offset().left;
-    //   console.log("p5 : " + p5);
-    //   var p6 = $('#mark6').offset().left;
-    //   console.log("p6 : " + p6);
-    // })
-
-
+    $('.start_stations').on('click', function(e){
+      $(".start_stations").removeClass("selected");
+      $(this).addClass("selected");
+      $(this).fadeOut(50);
+      $(this).fadeIn(50);
+      e.preventDefault();
+      console.log(this.id)
+      $("#form_start_station").attr("value", this.id);
+    })
 
     window.onload = function(){
       setInterval(changeListCss,100);
@@ -62,7 +43,6 @@
           $(ele[i]).removeClass("in_3");
           $(ele[i]).removeClass("in_4");
           $(ele[i]).addClass("in_2");
-          // ele[i].textContent = ele[i].textContent + "　　　"
         }else if(p3 <= pos && pos < p4){
           $(ele[i]).removeClass("in_2");
           $(ele[i]).removeClass("in_3");
@@ -87,26 +67,28 @@
           break;
         }
       }
-
-
-
-
-
     }
-
   })
-
-
-
 </script>
 
 
 <div id="record-new">
   <div class = "title">
-    <h2>Where to Start ?</h2>
+    左右にスクロールして<br>出発駅を選んでください
   </div>
 
   <div class="main-content">
+<!--     <div class="station-card">
+      <div class="s-name">
+        東京
+      </div>
+      <div class="s-name-en">
+        Tokyo
+      </div>
+      <div class="sub-s">
+        <　有楽町　　　　　　神田　>
+      </div>
+    </div> -->
     <div class="circle_img">
       <img class="y_circle" src="/assets/circle.png"/>
     </div>
@@ -132,14 +114,13 @@
     </div>
   </div>
 
+  <div class="pre"><a href="">前回と同じ駅から出発する(未実装)</a></div>
+
 
   <div class = "button">
     <%= form_tag('/records', method: :post) do %>
       <input id = "form_start_station" name="start_station_id" type = "hidden">
       <button class ="input__button" id = "next_1" type="submit">NEXT</button>
     <% end %>
-    <!-- <div>
-      <button class ="input__button" id = "test">TEST</button>
-    </div> -->
   </div>
 </div>
