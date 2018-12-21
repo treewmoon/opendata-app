@@ -7,101 +7,96 @@
       <h3 class="lose"> YOU LOSE! </h3>
     <% end %>
 
-    <div class="flex">
-      <div class="train">
-        <p class="station_start"><%= Station.find(@record.start_station_id).name_ja %>駅</p>
-        <%= image_tag '1218.png', :size =>'62x31', class: "buruburu" %>
-        <p class="station_goal"><%= Station.find(@record.goal_station_id).name_ja %>駅</p>
-      </div>
-    </div>
 
+<!-- <div id="record-edit"> -->
 
-    <ul class="progress">
-      <li data-name="Running Time" data-percent=<%= @record.running_time%>>
-        <svg viewBox="-10 -10 220 220">
-          <g fill="none" stroke-width="6" transform="translate(100,100)">
-            <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-            <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
-            <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
-            <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
-            <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
-            <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-          </g>
-        </svg>
-        <svg viewBox="-10 -10 220 220"></svg>
-      </li>
+<!-- <div class="flex">
+    <ul>
+      <li> -->
+
+<!--       </li>
     </ul>
 
-    <ul class="progress1">
-        <li data-name="Calory" data-percent=<%= @record.consumed_calory%>>
-            <svg viewBox="-10 -10 220 220">
-            <g fill="none" stroke-width="6" transform="translate(100,100)">
-            <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-            <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
-            <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
-            <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
-            <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
-            <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-            </g>
-            </svg>
-            <svg viewBox="-10 -10 220 220">
-            </svg>
-        </li>
-    </ul>
+  </div> -->
 
-    <ul class="progress2">
+
+
+<div>
+<div class="circle-1">
+  <span>
+      <%= @record.running_time%>
+  </span>
+</div>
+
+
+
+
+
+<div class="circle-2">
+  <span>
+    <%= @record.consumed_calory%>
+
+  </span>
+</div>
+
+<div class = title-1> <span>Running Time</span> </div>
+<div class = title-2><span> Calory</span> </div>
+
+
+
+
+
+
+<div class="circle-3">
+  <span>
       <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
-        <li data-name="Distance" data-percent=<%= dis %>m>
-            <svg viewBox="-10 -10 220 220">
-            <g fill="none" stroke-width="6" transform="translate(100,100)">
-            <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-            <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
-            <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
-            <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
-            <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
-            <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-            </g>
-            </svg>
-            <svg viewBox="-10 -10 220 220">
-            </svg>
-        </li>
-    </ul>
+      <%= dis %>
+  </span>
+</div>
 
-    <ul class="progress3">
-        <li data-name="Save the fare" data-percent=<%if dis <= 3000 %>
+
+
+<div class="circle-4">
+  <span>
+      <%if dis <= 3000 %>
             140円
           <% elsif 3000 < dis && dis <= 6000 %>
             160円
           <% else %>
             170円
-          <% end %>>
-            <svg viewBox="-10 -10 220 220">
-            <g fill="none" stroke-width="6" transform="translate(100,100)">
-            <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-            <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl1)"/>
-            <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl1)"/>
-            <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl1)"/>
-            <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl1)"/>
-            <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl1)"/>
-            </g>
-            </svg>
-            <svg viewBox="-10 -10 220 220">
-            </svg>
-        </li>
-    </ul>
+          <% end %>
 
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#0ca678"/>
-          <stop offset="100%" stop-color="#0ca678"/>
-        </linearGradient>
-      </defs>
-    </svg>
+  </span>
+</div>
+</div>
 
-    <div class="wrap2">
+<div class = title-3> <span> Distance </span> </div>
+<div class = title-4><span> Save the fare </span> </div>
+
+</div>
+
+
+        <div class = "opponents">
+          <div class = "number"><!-- <i class="fa fa-subway"> --><!-- </i> --></div>
+          <div class = "time">
+            <% json = Jre_api.get_train_timetable(@record.direction) %>
+            <%= Station.find(@record.start_station_id).name_ja%>
+            <%= Record.get_arrivalTime(@record.opponent,@record.start_station_id,json)%>
+               ⇒
+            <%= Station.find(@record.goal_station_id).name_ja%>
+            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
+            <%= arrivalTime %>
+            <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
+          </div>
+        </div>
+
+
+
+
+    <div class="wrap3">
       <button class="button2" onclick="location.href='/users/<%= current_user.id %>'">DATA</button>
     </div>
   </div>
 </div>
+
 
