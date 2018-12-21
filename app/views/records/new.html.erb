@@ -10,62 +10,49 @@
       $("#form_start_station").attr("value", this.id);
     })
 
+    $('.title').on('click', function(e){
+      console.log($('#mark1').offset().left);
+      console.log($('#1').offset().left);
+    })
+
+
     window.onload = function(){
+      // $('.station-list').scrollLeft(1000);
       setInterval(changeListCss,100);
     }
 
     var changeListCss = function(){
       var p1 = $('#mark1').offset().left;
       var p2 = $('#mark2').offset().left;
-      var p3 = $('#mark3').offset().left;
-      var p4 = $('#mark4').offset().left;
-      var p5 = $('#mark5').offset().left;
-      var p6 = $('#mark6').offset().left;
 
       var ele = document.getElementsByClassName("start_stations");
       for(var i = 0; i < ele.length; i++){
         var pos = $(ele[i]).offset().left;
         if(pos < p1){
-          $(ele[i]).removeClass("in_1");
           $(ele[i]).removeClass("in_2");
-          $(ele[i]).removeClass("in_3");
-          $(ele[i]).addClass("in_4");
+          $(ele[i]).addClass("in_1");
         }else if(p1 <= pos && pos < p2){
-          if($(ele[i]).hasClass("in_3")){
+          if($(ele[i]).hasClass("in_2")){
             break;
           }
           $(ele[i]).removeClass("in_1");
-          $(ele[i]).removeClass("in_2");
-          $(ele[i]).removeClass("in_4");
-          $(ele[i]).addClass("in_3");
-        }else if(p2 <= pos && pos < p3){
-          $(ele[i]).removeClass("in_1");
-          $(ele[i]).removeClass("in_3");
-          $(ele[i]).removeClass("in_4");
           $(ele[i]).addClass("in_2");
-        }else if(p3 <= pos && pos < p4){
-          $(ele[i]).removeClass("in_2");
-          $(ele[i]).removeClass("in_3");
-          $(ele[i]).removeClass("in_4");
-          $(ele[i]).addClass("in_1");
+          s_name.textContent = ele[i].textContent;
+          s_name_en.textContent = $(ele[i]).parent().attr("id");
           $("#form_start_station").attr("value", ele[i].id);
-        }else if(p4 <= pos && pos < p5){
-          $(ele[i]).removeClass("in_1");
-          $(ele[i]).removeClass("in_3");
-          $(ele[i]).removeClass("in_4");
-          $(ele[i]).addClass("in_2");
-        }else if(p5 <= pos && pos < p6){
-          $(ele[i]).removeClass("in_1");
+        }else if(p2 <= pos){
           $(ele[i]).removeClass("in_2");
-          $(ele[i]).removeClass("in_4");
-          $(ele[i]).addClass("in_3");
-        }else if(p6 <= pos){
-          $(ele[i]).removeClass("in_1");
-          $(ele[i]).removeClass("in_2");
-          $(ele[i]).removeClass("in_3");
-          $(ele[i]).addClass("in_4");
+          $(ele[i]).addClass("in_1");
           break;
         }
+      }
+      b.textContent = "<";
+      b2.textContent = ">";
+      if(s_name.textContent == "有楽町"){
+        b2.textContent = "";
+      }
+      if(s_name.textContent == "東京"){
+        b.textContent = "";
       }
     }
   })
@@ -78,43 +65,39 @@
   </div>
 
   <div class="main-content">
-<!--     <div class="station-card">
-      <div class="s-name">
-        東京
-      </div>
-      <div class="s-name-en">
-        Tokyo
-      </div>
+    <div class="station-card">
+      <div id="s_name"></div>
+      <div id="s_name_en"></div>
       <div class="sub-s">
-        <　有楽町　　　　　　神田　>
+        <div id="b"></div>
+        <ul class="station-list">
+          <li class="item"><div class = "start_stations">　</div>
+            </li></li>
+          <% for i in 1..29 do %>
+            <li class="item" id = <%= Station.find(i).name_en %>>
+              <div class = "start_stations" id = <%=i%> ><%= Station.find(i).name_ja %></div>
+            </li>
+          <% end %>
+          <li class="item"><div class = "start_stations">　</div>
+        </ul>
+        <div id="b2"></div>
       </div>
-    </div> -->
-    <div class="circle_img">
-      <img class="y_circle" src="/assets/circle.png"/>
     </div>
 
-    <ul class="station-list">
-      <li class="item"></li>
-      <li class="item"></li>
-      <% for i in 1..29 do %>
-        <li class="item">
-          <div class = "start_stations" id = <%=i%> ><%= Station.find(i).name_ja %></div>
-        </li>
-      <% end %>
-      <li class="item"></li>
-      <li class="item"></li>
-    </ul>
+
+
+
+
+
+
+
     <div class = "marks">
       <div class = "mark" id = "mark1">|</div>
       <div class = "mark" id = "mark2">|</div>
-      <div class = "mark" id = "mark3">|</div>
-      <div class = "mark" id = "mark4">|</div>
-      <div class = "mark" id = "mark5">|</div>
-      <div class = "mark" id = "mark6">|</div>
     </div>
   </div>
 
-  <div class="pre"><a href="">前回と同じ駅から出発する(未実装)</a></div>
+<!--   <div class="pre"><a href="">前回と同じ駅から出発する(未実装)</a></div> -->
 
 
   <div class = "button">

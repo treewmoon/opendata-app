@@ -18,14 +18,14 @@
     background-color: white;
     height:50vw;
     width: 90vw;
-    margin:10vw auto 10vw;
+    margin:10vw auto 0;
   }
-  .s-name{
-    height: 60%;
+  #s_name{
+    height: 55%;
     text-align: center;
-    font-size: 22vw;
+    font-size: 16vw;
   }
-  .s-name-en{
+  #s_name_en{
     height: 15%;
     text-align: center;
     color:#adb5bd;
@@ -44,16 +44,6 @@
 
   }
 
-  .circle_img{
-    height: 10vw;
-    width: 20vw;
-    padding: 0 0 20vw 0;
-  }
-  .y_circle{
-    height: 30vw;
-    width: 100vw;
-    position: absolute; left: 0vw;
-  }
   .title{
     margin:0 0 0 0;
     text-align: center;
@@ -61,78 +51,66 @@
   }
 
 
-
-
-
-  .main-content{
-    background-color: white;
-  }
-
   .station-list {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     overflow: auto;
-    height: 30vw;
+    width: 70%;
+    margin: 0 auto;
+    float:left;
   }
   .item {
     display: inline-block;
-    width: 24%;
-    height:74%;
+    font-size: 5.5vw;
+    width: 40%;
+    height:40vw;
+    color:#0ca678;
   }
+#b{
+  font-size: 7vw;
+  width: 8%;
+  height: 100%;
+  float:left;
+  color:white;
+}
+#b2{
+  font-size: 7vw;
+  width: 8%;
+  height: 100%;
+  float:left;
+  color:white;
+}
+  // .start_stations{
+  //   height:100%;
+  // }
 
-  .start_stations{
-    height:100%;
-    // text-align: end;
-    -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: tb-rl;
-    writing-mode: vertical-rl;
-  }
+
   .mark{
     height:1vw;
-    color:white;
+    // color:black;
+    color:#f1f3f5;
+    clear:both;
   }
   #mark1{
-    margin:0 0 0 5vw;
+    margin:0 0 0 30vw;
   }
   #mark2{
-    margin:0 0 0 20vw;
-  }
-  #mark3{
-    margin:0 0 0 38vw;
-  }
-  #mark4{
-    margin:0 0 0 59vw;
-  }
-  #mark5{
-    margin:0 0 0 77vw;
-  }
-  #mark6{
-    margin:0 0 0 92vw;
+    margin:0 0 0 56vw;
   }
 
-
-  .in_4{
-    color:#495057;
-    font-size: 1vw;
-  }
-  .in_3{
-    color:#495057;
-    font-size: 3vw;
-  }
   .in_2{
-    color:#495057;
-    font-size: 5vw;
+    color:#0ca678;
+    // color:black;
   }
   // .in_2:after {
   // content: "";
   // }
   .in_1{
-    color:#0ca678;
-    font-size: 7vw;
+    color:white;
   }
   .button {
-    padding:5vw 0;
+    padding:0;
     height:80px;
     width: 200px;
     display: flex;
