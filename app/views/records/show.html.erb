@@ -2,79 +2,10 @@
 
   <div class="wrap">
     <% if @record.result == 0%>
-      <h3 class="win"> YOU WIN!  </h3>
+      <h2 class="win"> YOU WIN!  </h2>
     <% else %>
-      <h3 class="lose"> YOU LOSE! </h3>
+      <h2 class="lose"> YOU LOSE! </h2>
     <% end %>
-
-
-<!-- <div id="record-edit"> -->
-
-<!-- <div class="flex">
-    <ul>
-      <li> -->
-
-<!--       </li>
-    </ul>
-
-  </div> -->
-
-
-
-<div>
-<div class="circle-1">
-  <span>
-      <%= @record.running_time%>
-  </span>
-</div>
-
-
-
-
-
-<div class="circle-2">
-  <span>
-    <%= @record.consumed_calory%>
-
-  </span>
-</div>
-
-<div class = title-1> <span>Running Time</span> </div>
-<div class = title-2><span> Calory</span> </div>
-
-
-
-
-
-
-<div class="circle-3">
-  <span>
-      <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
-      <%= dis %>
-  </span>
-</div>
-
-
-
-<div class="circle-4">
-  <span>
-      <%if dis <= 3000 %>
-            140円
-          <% elsif 3000 < dis && dis <= 6000 %>
-            160円
-          <% else %>
-            170円
-          <% end %>
-
-  </span>
-</div>
-</div>
-
-<div class = title-3> <span> Distance </span> </div>
-<div class = title-4><span> Save the fare </span> </div>
-
-</div>
-
 
         <div class = "opponents">
           <div class = "number"><!-- <i class="fa fa-subway"> --><!-- </i> --></div>
@@ -90,11 +21,53 @@
           </div>
         </div>
 
+    <div>
+    <div class="circle-1">
+      <span>
+          <%= @record.running_time%>
+      </span>
+    </div>
 
+    <div class="circle-2">
+      <span>
+        <%= @record.consumed_calory%>
+        <h5>kcal</h>
+      </span>
+    </div>
 
+    <div class = title-1> <span> 時間 </span> </div>
+    <div class = title-2><span> カロリー </span> </div>
+
+    <div class="circle-3">
+      <span>
+          <% dis = Distance.get_distance(@record.start_station_id,@record.goal_station_id,@record.direction)%>
+          <%= dis.to_s(:delimited) %>
+          <h5> M </h5>
+      </span>
+    </div>
+
+    <div class="circle-4">
+      <span>
+          <%if dis <= 3000 %>
+                140
+              <% elsif 3000 < dis && dis <= 6000 %>
+                160
+              <% else %>
+                170
+              <% end %>
+              <h5> 円 </h5>
+
+      </span>
+    </div>
+    </div>
+
+    <div class = title-3> <span> 距離 </span> </div>
+    <div class = title-4><span> 運賃 </span> </div>
+
+</div>
 
     <div class="wrap3">
-      <button class="button2" onclick="location.href='/users/<%= current_user.id %>'">DATA</button>
+      <button class="button2" onclick="location.href='/users/<%= current_user.id %>'"> My Page </button>
     </div>
   </div>
 </div>
