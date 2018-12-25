@@ -17,9 +17,9 @@
   }
 
   h2{
-    font-size: 8.3vh;
+    font-size: 9.0vh;
     text-align: center;
-    line-height: 8.5vh;
+    line-height: 12.0vh;
     margin-top: -0.5vh;
     margin-bottom: 2.3vh;
     color:#0ca678;
@@ -43,14 +43,13 @@ ul {
   }
 
   .opponents{
-    border-style: double;
     border-color: #f1f3f5;
     border-width: 2vw;
     background-color: white;
-    // margin-top: -52vw;
     margin-right: auto;
     margin-left: auto;
     width:78vw;
+    margin-top: 4vh;
   }
 
   .number{
@@ -160,14 +159,14 @@ ul {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    margin-top: 0vh;
+    margin-top: 5vh;
   }
 
   .circle-1 {
     width: 30vw;
     height: 30vw;
     border-radius: 50%;
-   margin-top: 0vh;
+   margin-top: 3vh;
     margin-right: 0vw;
     margin-bottom: 0vh;
     margin-left: 10vw;
@@ -195,7 +194,7 @@ ul {
       width: 30vw;
       height: 30vw;
       border-radius: 50%;
-      margin-top: 0vh;
+      margin-top: 3vh;
         margin-right: 10vw;
         margin-bottom: 0vh;
         margin-left: 0vw;
@@ -222,7 +221,7 @@ ul {
       width: 30vw;
       height: 30vw;
       border-radius: 50%;
-      margin-top: 0.5vh;
+      margin-top: 3.5vh;
         margin-right: 0vw;
         margin-bottom: 0vh;
         margin-left: 10vw;
@@ -248,7 +247,7 @@ ul {
       width: 30vw;
       height: 30vw;
       border-radius: 50%;
-      margin-top: 0.5vh;
+      margin-top: 3.5vh;
         margin-right: 10vw;
         margin-bottom: 0vh;
         margin-left: 0vw;
