@@ -43,19 +43,19 @@
       <div class="value">
       <%= count_meter.to_s(:delimited) %>m</div>
     </div>
-    <div class = "yen">
-      <div class="label"><%= embedded_svg("yen-sign-solid.svg", class: "good-svg") %>運賃</div>
-      <div class="value">
-      <%= count_yen.to_s(:delimited) %>円</div>
-    </div>
     <div class="cal">
       <div class="label"><%= embedded_svg("fire-solid.svg", class: "good-svg") %>消費カロリー</div>
       <div class="value">
       <%= count_cal.to_s(:delimited) %>cal</div>
     </div>
-    <div class="tmp">
-      <div class="label"></div>
+    <div class = "yen">
+      <div class="label"><%= embedded_svg("yen-sign-solid.svg", class: "good-svg") %>運賃</div>
       <div class="value">
+      <%= count_yen.to_s(:delimited) %>円</div>
+    </div>
+    <div class="tmp">
+      <div class="label"><%= embedded_svg("user-circle-solid.svg", class: "good-svg") %>Rank</div>
+      <div class="value">12
       </div>
     </div>
   </div>

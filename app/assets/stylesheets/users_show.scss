@@ -46,14 +46,14 @@ stroke: #0500FA;
   float:left;
   margin: 0 auto 1vw;
 }
-.yen{
+.cal{
   background-color: white;
   width: 49%;
   height:33%;
   float:right;
 
 }
-.cal{
+.yen{
   clear:both;
   background-color: white;
   width: 49%;
@@ -70,12 +70,14 @@ stroke: #0500FA;
 }
 
 .label{
-  font-size: 4vw;
+  font-size: 5vw;
+  height: 35%;
 }
 .value{
   color:#0ca678;
   text-align: center;
   font-size: 7vw;
+  // height: 90%;
 }
 .result .value{
   color:#0ca678;
