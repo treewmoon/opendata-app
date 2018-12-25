@@ -10,7 +10,6 @@
   background-color: #f1f3f5;
 
 
-
 .progress {
   position: relative;
   height: 50vw;
@@ -26,6 +25,7 @@
       text-align: center;
       font-family: Lato;
       margin: 2vw;
+      height: 70vw;
         &:before {
           content: attr(data-name);
           position: absolute;
@@ -74,7 +74,6 @@ ul {
   }
 
   .opponents{
-    border-style: solid;
     border-color: #f1f3f5;
     border-width: 2vw;
     background-color: white;
@@ -189,13 +188,12 @@ ul {
 
   .train {
     width: 100vw;
-    height: 5vw;
+    height: 10vw;
     text-align: center;
     border-bottom: dashed 2vw #495057;
     box-shadow: 0px 1px #495057,0px -1px #495057 inset;
     display: flex;
     align-items: flex-end;
-    line-height:2vw;
   }
 
   body {
