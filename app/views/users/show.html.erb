@@ -1,34 +1,82 @@
 <div id="users-show">
-  <h2>JRE Run with Train</h2>
-    <table summary="プロフィール">
-      <tr>
-        <th class="t_top" width="100">名前</th>
-        <td class="t_top"><%= @user.name %></td>
-      </tr>
+  <% count_win = 0%>
+  <% count_lose = 0%>
+  <% count_meter = 0%>
+  <% count_yen = 0%>
+  <% count_cal = 0%>
+  <%@records.each do |record| %>
+    <% count_meter += Distance.get_distance(record.start_station_id,record.goal_station_id,record.direction)%>
+    <% count_yen += 100%>
+    <% count_cal += record.consumed_calory%>
+    <% if record.result == 0%><% count_win += 1%>
+    <% else %><% count_lose += 1%>
+    <% end %>
+  <% end %>
 
-      <tr>
-        <th>年齢</th>
-        <td><%= @user.age %> 歳</td>
-      </tr>
+<div class="title">
+  <%= @user.name %> の成績
+</div>
+  <div class="screen">
+    <div class="data">
 
-      <tr>
-        <th>性別</th>
-        <td><% if @user.gender == 0%>
-         男性
-        <% else %>
-        女性
-        <% end %></td>
-      </tr>
-      <tr>
-        <th>身長</th>
-        <td><%= @user.height %> cm</td>
-      </tr>
-      <tr>
-        <th>体重</th>
-        <td><%= @user.weight %> kg</td>
-      </tr>
-    </table>
 
-    <br><br>
-  <a class="btn" href="/">戻る</a>
+
+
+    <div class="result">
+      <div class="label">勝敗</div>
+      <div class="value"><%= count_win %>勝<%= count_lose %>敗</div>
+
+
+
+    </div>
+    <div class="meter">
+      <div class="label">走行距離</div>
+      <div class="value">
+      <%= count_meter.to_s(:delimited) %>m</div>
+    </div>
+    <div class = "yen">
+      <div class="label">運賃</div>
+      <div class="value">
+      <%= count_yen.to_s(:delimited) %>円</div>
+    </div>
+    <div class="cal">
+      <div class="label">消費カロリー</div>
+      <div class="value">
+      <%= count_cal.to_s(:delimited) %>cal</div>
+    </div>
+    <div class="tmp">
+      <div class="label"></div>
+      <div class="value">
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="title">
+  過去のレコード
+</div>
+  <div class="main-content">
+    <ul>
+      <%@records.each do |record| %>
+        <li>
+          <div class = "opponents" >
+            <div class = "number">
+              <% if record.result == 0%>WIN
+              <% else %>LOSE
+              <% end %>
+              </div>
+            <div class = "time">
+              <%= record.updated_at.in_time_zone('Tokyo').strftime('%Y/%m/%d')%>
+                　　
+              <%= Station.find(record.start_station_id).name_ja%>
+                ⇒
+              <%= Station.find(record.goal_station_id).name_ja%>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>

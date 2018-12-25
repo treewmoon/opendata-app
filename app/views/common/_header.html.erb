@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
   <header class="header">
-    <div class="back"><a href="javascript:history.back();"><i class="fa fa-chevron-left"></i></a></div>
-    <div class="grid-6">Trainer</div>
-    <div class="logout"><%= link_to "logout", destroy_user_session_path, method: :delete %></div>
+    <ul class="header_list">
+        <li class="back"><a href="javascript:history.back();"><i class="fa fa-chevron-left"></i></a></li>
+        <li class="page_title"><%= @title %></li>
+        <li class = "menu"><i class="fa fa-bars"></i></li>
+      </ul>
   </header>
 <% end %>

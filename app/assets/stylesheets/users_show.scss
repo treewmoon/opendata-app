@@ -1,39 +1,112 @@
+@keyframes load{0%{stroke-dashoffset:0}}
 #users-show {
 
-table {
+font-family: Lato;
+  background-color: #f1f3f5;
+  color:#495057;
+  height: 80%;
   width: 100%;
-  border-collapse: collapse;
-  height: 70vh;
-}
-th.t_top {
-    border-top: #be1309 4px solid;
-}
-th {
-  border-bottom: #e3e3e3 1px solid;
-  border-left: #e3e3e3 1px solid;
-  text-align: left;
-  background: #f7f7f7;
-  padding: 10px;
-  font-weight: normal;
-  font-size:130%;
-}
-td.t_top {
-  border-top: #b3b3b3 4px solid;
-}
-td {
-  border-bottom: #e3e3e3 1px solid;
-  border-right: #e3e3e3 1px solid;
-  text-align: left;
-  padding: 10px;
-  font-size:130%;
-}
-  h2 {
-    background:#64AA64;
-    padding:20px 0; /*PADDING TODOS OS LADOS DE 20PX*/
-    font-size:250%;
-    font-weight:600;
-    text-align:center;
-    font-family: 'Impact',sans-serif;
-    color:#fff;
+
+  .title{
+    padding:0 0 0 5vw;
+    font-size: 5vw;
+    color:#868e96;
   }
+  .screen{
+    margin:0 auto 3vw;
+    height:68vw;
+    width: 90%;
+    background-color: #0ca678;
+  }
+  .data{
+    margin:0 auto;
+    padding: 3vw 0 0 0;
+    height:90%;
+    width: 88%;
+  }
+
+.result{
+  background-color: white;
+  // width: 80%;
+  height:33%;
+  margin: 0 auto 1vw;
+}
+.meter{
+  background-color: white;
+  width: 49%;
+  height:33%;
+  float:left;
+  margin: 0 auto 1vw;
+}
+.yen{
+  background-color: white;
+  width: 49%;
+  height:33%;
+  float:right;
+
+}
+.cal{
+  clear:both;
+  background-color: white;
+  width: 49%;
+  height:33%;
+  float:left;
+  margin: 0 auto 1vw;
+}
+.tmp{
+  background-color:white;
+  width: 49%;
+  height:33%;
+  float:right;
+
+}
+
+
+  .main-content{
+    height:50vw;
+    // width: 90%;
+    margin: 0 auto;
+    overflow:scroll;
+
+
+  }
+  ul {
+    list-style: none;
+    margin:0 auto;
+    padding:0;
+  }
+  .opponents{
+    border-style: solid;
+    border-color: #f1f3f5;
+    border-width: 2vw;
+    background-color: white;
+    height: 18vw;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .number{
+    color:#0ca678;
+    text-align:center;
+    font-size:6vw;
+  }
+  .time{
+    color:#adb5bd;
+    text-align:center;
+    font-size:5vw;
+  }
+
+
+  .selected{
+    background-color:#0ca678;
+    .number{
+      color:white;
+    }
+    .time{
+      color:white;
+    }
+  }
+
+
+
 }

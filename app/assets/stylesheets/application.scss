@@ -18,32 +18,54 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
 header {
-  background-color: #f1f3f5;
+/*  background-color: #f1f3f5;*/
+  background-color: #0ca678;
   height: 15vw;
   width: 100%;
-  border-bottom: 0.1vw solid #495057;
+/*  border-bottom: 0.1vw solid #495057;*/
   margin-bottom: 5vw;
+  color: white;
 }
 
 a {
   font-family: Lato;
-  color: #495057;
+  /*color: #dee2e6;*/
+  color: white;
 }
 
-.back, .logout, .grid-6 {
+/*.back, .logout, .grid-6 {
   margin: 0 auto;
   width: 30%;
   float: left;
   text-align: center;
   line-height:20vw;
-}
-
-.back{
-
-}
+}*/
 
 body {
   height:100%;
   margin: 0;
+}
+
+
+.header_list {
+  margin: 0;
+  padding: 4vw;
+  list-style: none;
+  text-align: center;
+}
+.header_list li {
+/*  height:100%;*/
+  font-size: 5vw;
+/*  margin: 0;
+  float: left;*/
+}
+.back{
+  position:absolute; top:4vw; left:3vw
+}
+.page_title{
+    position:absolute; top:4vw; left:40vw
+}
+.menu{
+  position:absolute; top:4vw; left:90vw
 }
 
