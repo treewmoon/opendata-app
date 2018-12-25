@@ -3,7 +3,7 @@ require "jre_api.rb"
 class RecordsController < ApplicationController
   #スタート選択
   def new
-    @title = "Select Start"
+    @title = "スタート設定"
   end
 
   def create
@@ -17,7 +17,7 @@ class RecordsController < ApplicationController
   #ゴール設定
   def new_next
     @record = Record.find(params[:id])
-    @title = "Select Goal"
+    @title = "ゴール設定"
   end
 
   def set_goal
@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
   #相手設定
   def new_last
     @record = Record.find(params[:id])
-    @title = "Select train"
+    @title = "電車選択"
   end
 
   def set_opponent

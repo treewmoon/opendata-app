@@ -1,23 +1,25 @@
-<div id="login-page">
+<div id="login-page" style="width:90%;height:80vw;">
   <h3>~WELCOME~</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field background-red">
-    <%= f.label :email, class: "email-sample-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field background-red">
+      <%= f.label :email, class: "email-sample-label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
 
-  <div class="actions" ontouchstart="">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class="actions" ontouchstart="">
+      <%= f.submit "Log in" %>
+    </div>
   <% end %>
 
+  <div>
+    <%= render "devise/shared/links" %>
   </div>
-  <%= render "devise/shared/links" %>
-  </div>
+
+</div>
 

@@ -52,11 +52,11 @@
             </tr>
           </thead> -->
           <tbody>
-            <% Record.get_stations_inner(@record.start_station_id,5).each do |station| %>
+            <% Record.get_stations_inner(@record.start_station_id,4).each do |station| %>
               <tr id = <%=station%> class="station">
                 <td><i class="fa fa-university"></i>　<%= Station.find(station).name_ja %></td>
                 <% dis = Distance.get_distance(@record.start_station_id,station,0)%>
-                <td><%= dis %>m　(<i class="fa fa-user"></i><%= dis / 70 %>分)</td>
+                <td><%= dis %>m　(<%= embedded_svg("walking-solid.svg", class: "good-svg") %><%= dis / 70 %>分)</td>
               </tr>
             <% end %>
           </tbody>
@@ -73,11 +73,11 @@
             </tr>
           </thead> -->
           <tbody>
-            <% Record.get_stations_outer(@record.start_station_id,5).each do |station| %>
+            <% Record.get_stations_outer(@record.start_station_id,4).each do |station| %>
               <tr id = <%=station%> class="station">
                 <td><i class="fa fa-university"></i>　<%= Station.find(station).name_ja %></td>
                 <% dis = Distance.get_distance(@record.start_station_id,station,1)%>
-                <td><%= dis %>m　(<i class="fa fa-user"></i><%= dis / 70 %>分)</td>
+                <td><%= dis %>m　(<%= embedded_svg("walking-solid.svg", class: "good-svg") %><%= dis / 70 %>分)</td>
               </tr>
             <% end %>
           </tbody>
