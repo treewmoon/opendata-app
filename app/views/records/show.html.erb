@@ -12,12 +12,8 @@
           <div class = "time">
             <% json = Jre_api.get_train_timetable(@record.direction) %>
             <%= Station.find(@record.start_station_id).name_ja%>
-            <%= Record.get_arrivalTime(@record.opponent,@record.start_station_id,json)%>
                ⇒
             <%= Station.find(@record.goal_station_id).name_ja%>
-            <% arrivalTime = Record.get_arrivalTime(@record.opponent,@record.goal_station_id,json) %>
-            <%= arrivalTime %>
-            <div style="display: hidden" id="arrivalTime" data-arrivalTime=<%= arrivalTime %>></div>
           </div>
         </div>
 
@@ -67,7 +63,7 @@
 </div>
 
     <div class="wrap3">
-      <button class="button2" onclick="location.href='/users/<%= current_user.id %>'"> MyPage </button>
+      <button class="button2" onclick="location.href='/users/<%= current_user.id %>'"> My Page </button>
     </div>
   </div>
 </div>
