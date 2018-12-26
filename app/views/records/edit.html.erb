@@ -77,7 +77,7 @@
     <ul>
       <li>
         <div class = "opponents">
-          <div class = "number"><i class="fa fa-subway"></i></div>
+          <div class = "number"><i class="fa fa-subway"></i>　<%= @record.opponent%></div>
           <div class = "time">
             <% json = Jre_api.get_train_timetable(@record.direction) %>
             <%= Station.find(@record.start_station_id).name_ja%>
