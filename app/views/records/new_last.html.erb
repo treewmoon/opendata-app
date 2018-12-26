@@ -25,9 +25,9 @@
           <div class = "opponents" id = <%=opponent["number"]%>>
             <div class = "number"><i class="fa fa-subway"></i>　<%= opponent["number"]%></div>
             <div class = "time">
-            <%= Station.find(@record.start_station_id).name_ja%>駅<%= opponent["start_time"] %>
+            <%= Station.find(@record.start_station_id).name_ja%><%= opponent["start_time"] %>
                ⇒
-            <%= Station.find(@record.goal_station_id).name_ja%>駅<%= opponent["goal_time"] %>
+            <%= Station.find(@record.goal_station_id).name_ja%><%= opponent["goal_time"] %>
             </div>
           </div>
         </li>
